@@ -1,0 +1,176 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "KidsClub_Core7Context",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "",
+   "OutputContextPath": "EFCorePowerTool\/Context",
+   "OutputPath": "EFCorePowerTool\/Entities",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "KidsClub-Core7",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[AspNetRole]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetRoleClaim]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetRoleClaims]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserClaims]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserLogins]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUsers]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AspNetUserTokens]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TblActivityInventory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tblCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tblContent]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tblMembership]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vwCategoryChild]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwCategoryCount]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwContentCategoryFeatures]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwContentChildCountMurod]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwEventAttendance]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwMessages]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[vwRoleUsers]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[usp_Content_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Content_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Content_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_EventAttend]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Events_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Events_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Events_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Events_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Messages_Deleted]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Messages_Inbox]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Messages_Send]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Messages_Sent]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Messages_Trash]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_Testimonials]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_User_UPDATE]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "desktop-39tlpoq.KidsClub.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
