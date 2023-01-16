@@ -1,0 +1,78 @@
+﻿@page
+@model KidsClub.Pages.Messages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-10" >
+            <h4>Reply to the following message</h4>
+
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        Sender's Email
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.TblMessage.FromId)
+                    </dd>
+
+                    <dt class="col-sm-2">
+                        Sender's Name
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.TblMessage.Title)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Subject
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.TblMessage.ShortDescription)
+                    </dd>
+                    <dt class="col-sm-2">
+                        Message
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.TblMessage.LongDescription)
+                    </dd>
+
+                </dl>
+            </div>
+            
+            <h4 class="mt-4"> Your Response</h4>
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input asp-for="TblReplyer.ToId" placeholder="Email sent to" class="form-control" />
+                            <span asp-validation-for="TblReplyer.ToId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="TblReplyer.Title" placeholder="Your name" class="form-control" />
+                            <span asp-validation-for="TblReplyer.Title" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="TblReplyer.ShortDescription" placeholder="Subject" class="form-control" />
+                            <span asp-validation-for="TblReplyer.ShortDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea asp-for="TblReplyer.LongDescription" id="compose-textarea" class="form-control" style="height: 100px" placeholder="Please write your massege here:">
+                                        </textarea>
+                            <span asp-validation-for="TblReplyer.LongDescription" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Send" class="btn btn-primary" /> |
+                             <a asp-page="Index1">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

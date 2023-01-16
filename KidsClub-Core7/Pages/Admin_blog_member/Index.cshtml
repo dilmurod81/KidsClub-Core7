@@ -1,0 +1,119 @@
+﻿@page
+@model KidsClub.Pages.Admin_blog_member.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_member.cshtml";
+}
+<br />
+<div class="container">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h4>Blogs</h4>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn bg-info float-right" style="margin-right: 4px">
+                    <a asp-page="./Create">Add New Article</a>
+                </button>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+    <div class="container">
+        <div class="d-flex flex-row">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col-md-9 offset-md-1">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h4 class="card-title">Articles</h4>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col px-4">
+                                                <div style="width:1020px">
+                                                    <div>
+                                                        <img src="/Pictures/blog-information-website-concept-workplace-background-text-view-above-127465079.jpg" />
+                                                    </div>
+                                                    <br />
+                                                    <h3>Enjoy our Articles</h3>
+                                                    <p class="mb-0">Please select your article below you want to edit or delete. </p>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @foreach (var item in Model.TblContent)
+                                    {
+                                        <div class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <a asp-page="/Admin_blog_member/Details" asp-route-id="@item.Id">
+                                                        <img style="width:340px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)">
+                                                    </a>
+                                                </div>
+                                                <div class="col px-4">
+                                                    <div>
+                                                        <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
+                                                        
+                                                        @*<p>@Html.DisplayFor(modelItem => item.DateEntered)</p>*@
+                                                        <div class="project-actions text-left">
+                                                            <p>
+                                                                <label class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</label>
+                                                                <label class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Likes @*(@Html.DisplayFor(modelItem => item.Likes))*@
+                                       @{
+                                            var result = item.Likes - item.Active;
+                                        } 
+                                        @result    
+                                                                </label>
+                                                                <span class="float-right">
+                                                                    <a asp-page="/Admin_blog_member/Details" asp-route-id="@item.Id" class="link-primary text-sm">
+                                                                        <i class="far fa-comments mr-1"></i>
+                                                                        Comments (@Html.DisplayFor(modelItem => item.CountParentId))
+                                                                    </a>
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                        <p class="mb-0">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                                                        
+                                                    </div>
+
+                                                </div>
+                                                @{
+                                                    string trim = item.FromId;
+                                                    string FromID = trim.Replace(" ", "");
+                                                }
+                                                @if (User.Identity.Name == FromID)
+                                                {
+                                                    <div class="project-actions text-right">
+
+                                                        <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id" asp-route-picture="@item.Picture">
+                                                            <i class="fas fa-pencil-alt">
+
+                                                            </i>
+                                                        </a>
+                                                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                                            <i class="fas fa-trash">
+                                                            </i>
+
+                                                        </a>
+
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+   

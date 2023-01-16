@@ -1,0 +1,89 @@
+﻿@page
+@model KidsClub.Pages.Admin_testimonials.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3>Testimonial Page</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <button class="btn bg-info float-right" style="margin-right: 4px">
+                            <a asp-page="./Create">Create New Testimonial</a>
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model.TblContent)
+            {
+                <div class="col-md-4">
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body" style="height:100%">
+                            <div class="text-center">
+                                <img class="profile-user-img"
+                                 src="../Pictures/User_2.jpg"
+                                 alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center">@Html.DisplayFor(modelItem => item.FromId)</h3>
+                            <ul class="list-group list-group-unbordered mb-1">
+                                <li class="list-group-item">
+                                    <b>Title</b> <a class="float-right">@Html.DisplayFor(modelItem => item.Title)</a>
+                                </li>
+                            </ul>
+                            <strong><i class="fas fa-book mr-1"></i>Short Description</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.ShortDescription)
+                            </p>
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.Qty)
+                            </p>
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.DisplayOrder)
+                            </p>
+
+                            <hr>
+                            <div class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+                                    <i class="fas fa-pencil-alt">
+
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+
+                </div>
+            }
+           
+        </div>
+    </div>
+</section>
+
+

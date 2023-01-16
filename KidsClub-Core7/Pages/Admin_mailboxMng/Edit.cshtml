@@ -1,0 +1,212 @@
+﻿@page
+@model KidsClub.Pages.Admin_mailboxMng.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Compose</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Compose</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content" style="margin-left:200px">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-md-9">
+                <div class="col-md-2">
+                    <a href="/Admin_mailboxMng" class="btn btn-primary btn-block mb-3">Back</a>
+                </div>
+            <div class="card card-primary card-outline">
+              <div class="card-header">
+                <h3 class="card-title"><b>Compose New Message</b></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="form-group">
+                  <input class="form-control" placeholder="To:">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" placeholder="Subject:">
+                </div>
+                <div class="form-group">
+                    <textarea id="compose-textarea" class="form-control" style="height: 300px">
+                      <h1><u>Heading</u></h1>
+                      <h4>Subheading</h4>
+                      <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain
+                        was born and I will give you a complete account of the system, and expound the actual teachings
+                        of the great explorer of the truth, the master-builder of human happiness.</p>
+                      <ul>
+                        <li>List item one</li>
+                        <li>List item two</li>
+                      </ul>
+                      <p>Thank you,</p>
+                      <p>John Doe</p>
+                    </textarea>
+                </div>
+                <div class="form-group">
+                  <div class="btn btn-default btn-file">
+                    <i class="fas fa-paperclip"></i> Attachment
+                    <input type="file" name="attachment">
+                  </div>
+                  <p class="help-block">Max. 32MB</p>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <div class="float-right">
+                  <button type="button" class="btn btn-default"><i class="fas fa-pencil-alt"></i> Draft</button>
+                  <button type="submit" class="btn btn-primary"><i class="far fa-envelope"></i> Send</button>
+                </div>
+                <button type="reset" class="btn btn-default"><i class="fas fa-times"></i> Discard</button>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TblContent.Id" />
+            <div class="form-group">
+                <label asp-for="TblContent.ParentId" class="control-label"></label>
+                <select asp-for="TblContent.ParentId" class="form-control" asp-items="ViewBag.ParentId"></select>
+                <span asp-validation-for="TblContent.ParentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.CategoryId" class="control-label"></label>
+                <select asp-for="TblContent.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                <span asp-validation-for="TblContent.CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.FromId" class="control-label"></label>
+                <input asp-for="TblContent.FromId" class="form-control" />
+                <span asp-validation-for="TblContent.FromId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.ToId" class="control-label"></label>
+                <input asp-for="TblContent.ToId" class="form-control" />
+                <span asp-validation-for="TblContent.ToId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Title" class="control-label"></label>
+                <input asp-for="TblContent.Title" class="form-control" />
+                <span asp-validation-for="TblContent.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.ShortDescription" class="control-label"></label>
+                <input asp-for="TblContent.ShortDescription" class="form-control" />
+                <span asp-validation-for="TblContent.ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.LongDescription" class="control-label"></label>
+                <input asp-for="TblContent.LongDescription" class="form-control" />
+                <span asp-validation-for="TblContent.LongDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Url" class="control-label"></label>
+                <input asp-for="TblContent.Url" class="form-control" />
+                <span asp-validation-for="TblContent.Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Urlslug" class="control-label"></label>
+                <input asp-for="TblContent.Urlslug" class="form-control" />
+                <span asp-validation-for="TblContent.Urlslug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Picture" class="control-label"></label>
+                <input asp-for="TblContent.Picture" class="form-control" />
+                <span asp-validation-for="TblContent.Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Icon" class="control-label"></label>
+                <input asp-for="TblContent.Icon" class="form-control" />
+                <span asp-validation-for="TblContent.Icon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.DisplayOrder" class="control-label"></label>
+                <input asp-for="TblContent.DisplayOrder" class="form-control" />
+                <span asp-validation-for="TblContent.DisplayOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Qty" class="control-label"></label>
+                <input asp-for="TblContent.Qty" class="form-control" />
+                <span asp-validation-for="TblContent.Qty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.Price" class="control-label"></label>
+                <input asp-for="TblContent.Price" class="form-control" />
+                <span asp-validation-for="TblContent.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.DiscountPrice" class="control-label"></label>
+                <input asp-for="TblContent.DiscountPrice" class="form-control" />
+                <span asp-validation-for="TblContent.DiscountPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.IsActive" class="control-label"></label>
+                <input asp-for="TblContent.IsActive" class="form-control" />
+                <span asp-validation-for="TblContent.IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TblContent.IsDefault" /> @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TblContent.IsArchived" /> @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.StartDate" class="control-label"></label>
+                <input asp-for="TblContent.StartDate" class="form-control" />
+                <span asp-validation-for="TblContent.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.EndDate" class="control-label"></label>
+                <input asp-for="TblContent.EndDate" class="form-control" />
+                <span asp-validation-for="TblContent.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.DateUpdated" class="control-label"></label>
+                <input asp-for="TblContent.DateUpdated" class="form-control" />
+                <span asp-validation-for="TblContent.DateUpdated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TblContent.DateEntered" class="control-label"></label>
+                <input asp-for="TblContent.DateEntered" class="form-control" />
+                <span asp-validation-for="TblContent.DateEntered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

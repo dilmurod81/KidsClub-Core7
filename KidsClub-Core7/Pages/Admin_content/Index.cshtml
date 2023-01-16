@@ -1,0 +1,305 @@
+﻿@page
+@model KidsClub.Pages.Admin_content.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout1.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3>Content Page</h3>
+            </div>
+             <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                            <button class="btn bg-info float-right" style="margin-right: 4px">
+                                <a asp-page="./Create">Create New Content</a>
+                            </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+
+    <section class="content" >
+        <div class="container-fluid">
+            <div class="row">
+            @foreach (var item in Model.TblContent)
+            {
+                <div class="col-md-4">
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img"
+                                 src="../Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                 alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center">@Html.DisplayFor(modelItem => item.Title)</h3>
+                            <ul class="list-group list-group-unbordered mb-1">
+                                <li class="list-group-item">
+                                    <b>Category</b> <a class="float-right" >@Html.DisplayFor(modelItem => item.Category.Title)</a>
+                                </li>
+                            </ul>
+                            <strong><i class="fas fa-book mr-1"></i>Short Description</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.ShortDescription)
+                            </p>
+
+                            <hr>
+                            <div class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+                                    <i class="fas fa-pencil-alt">
+
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+
+                                </a>
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                   
+                </div>
+              }                             
+                <!-- /.col -->
+@*                <div class="col-md-6">
+                    <div class="card card-primary" style="overflow:scroll">
+                        <div class="card-header">
+                            <h3 class="card-title">About Content</h3>
+                        </div>
+
+                        <!-- /.card-header -->
+                        <div class="card-body" style="height:300px">
+                             <div class="tab-content">
+                                <div class="active tab-pane" id="activity">
+                                    <!-- Post -->
+                                    <div class="post">
+                                        <div class="user-block">
+                                            <img class="img-circle img-bordered-sm" src="../../dist/img/logo_copy.png" alt="User Image">
+
+                                            <span class="username">
+                                                <a href="#">Content Description</a>
+                                                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+                                            </span>
+                                            <span class="description">Date Entered -@Html.DisplayFor(modelItem => item.DateEntered)</span>
+                                           
+                                        </div>
+                                        <br />
+                                        <!-- /.user-block -->
+                                        <h6>
+                                           @Html.DisplayFor(modelItem => item.LongDescription)
+                                        </h6>
+                                    </div>
+                                </div>
+                                <br />
+                                <!-- /.tab-pane -->
+                            </div>
+
+                            <strong><i class="fas fa-book mr-1"></i> From</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.FromId)
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> To</strong>
+
+                            <p class="text-muted">@Html.DisplayFor(modelItem => item.ToId)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> URL</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.Url)
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-book mr-1"></i> Price</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </p>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+*@
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+
+
+
+
+@*
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].FromId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].ToId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].LongDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Urlslug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DisplayOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DiscountPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsDefault)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsArchived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DateUpdated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DateEntered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Parent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblContent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LongDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urlslug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDefault)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsArchived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateUpdated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

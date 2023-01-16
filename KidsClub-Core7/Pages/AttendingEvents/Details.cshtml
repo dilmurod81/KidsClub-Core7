@@ -1,0 +1,775 @@
+﻿@page
+@model KidsClub.Pages.AttendingEvents.DetailsModel
+@{
+}
+<div class="container">
+    <br />
+    <div class="row" style="width:100%">
+        <div class="col-sm-7">
+                <div class="container">
+                    <div class="d-flex flex-row">
+                        <section class="content">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-md-12 offset-md-1">
+                                        <div class="card card-secondary">
+                                            <div class="card-header bg-light">
+                                                <h4 class="card-title">Event</h4>
+                                            </div>
+                                            <div class="list-group">
+                                                <div class="list-group-item">
+                                                    <div class="row">
+                                                        <div class="col px-7" style="padding-right:30px">
+                                                            <div style="width:700px; height:80%">
+                                                                <div>
+                                                                <img style="width:30%; height:30%px" class="center-block"
+                                                                     src="../Pictures/@Html.DisplayFor(model => model.TblEvent.Picture)"
+                                                                     alt="profile picture">
+                                                                    <hr />
+                                                                    <h3>@Html.DisplayFor(model => model.TblEvent.Title)</h3>
+                                                                    <hr />
+                                                                <b class="mb-0" style="font-size:15px">@Html.DisplayFor(model => model.TblEvent.ShortDescription)</b>
+                                                                <hr />
+                                                                <p class="mb-0" style="font-size:13px">@Html.DisplayFor(model => model.TblEvent.LongDescription)</p>
+                                                                    <hr />
+                                                                    <ul>
+                                                                    <li style="display:inline"><b>Start:</b>@Html.DisplayFor(model => model.TblEvent.StartDate)</li> &nbsp&nbsp 
+                                                                &nbsp&nbsp
+                                                                    <li style="display:inline"><b>End:</b>@Html.DisplayFor(model => model.TblEvent.EndDate)</li>
+                                                                @*<li style="display:inline"><b>Updated Date:</b> @Html.DisplayFor(modelItem => item.DateUpdated)</li>*@
+                                                                </ul>
+                                                                    @*<hr />
+                                                                    <h6>Your contribution</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.ShortDescription)
+                                                                    <h6>Guests You are planning to bring</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.Qty)
+                                                                    <h6>Your Expanses</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.Price)
+                                                                    <h6>Time you are planning to arrive</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.StartDate)
+                                                                    <h6>Time you are planning to leave</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.EndDate)
+                                                                    <h6>Like</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.IsDefault)
+                                                                    <h6>Dislike</h6>
+                                                                    @Html.DisplayFor(model => model.TblEvent.IsArchived)
+                                                                </div>
+                                                                <br />
+                                                                @*<a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id" asp-route-title="@item.Title" asp-route-picture="@item.Picture">
+                                                                    <i class="fas fa-pencil-alt">
+
+                                                                    </i>
+                                                                </a>
+                                                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                                                    <i class="fas fa-trash">
+                                                                    </i>
+
+                                                                </a>*@
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+                @*                <div class="card whitespacenowrap" style="margin: 10px">
+            <img class="card-img-top" style="width:100%; height:160px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="Card image cap">
+            <div class="card-body" style="height:280px">
+            <h5 class="card-title" style="color:black">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <hr />
+            <h8 class="card-text" style="color:dimgray">@Html.DisplayFor(modelItem => item.ShortDescription)</h8>
+            <hr />
+            <b class="fas fa-calendar mr-2">&nbsp&nbspStart: @Html.DisplayFor(modelItem => item.StartDate)</b>
+            <b class="fas fa-clock mr-2">&nbsp&nbspEnd: @Html.DisplayFor(modelItem => item.EndDate)</b>
+            </div>
+            <hr />
+            <div class="col" style="margin-left:65px">
+
+
+            <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+            <i class="fas fa-pencil-alt">
+
+            </i>
+            </a>
+
+
+            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+            <i class="fas fa-trash">
+            </i>
+
+            </a>
+
+            </div>
+            <br>
+            </div>
+            *@            
+            <br />
+        </div>
+
+
+        <div class="col-sm-3">
+                <div class="container" style="margin-left:60px; font-size: 15px">
+                    <div class="d-flex flex-row">
+                        <section class="content">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-md-12 offset-md-1">
+                                        <div class="card card-secondary">
+                                            <div class="card-header bg-light">
+                                                <h4 class="card-title" style="width:350px">attendees</h4>
+                                            </div>
+                                            <div class="list-group">
+                                                @foreach (var item in Model.TblAttendees)
+                                                {
+                                                    
+                                                         <div class="row">
+                                                             <div class="col px-4" style="padding-top:5px">
+                                                    <div style="width:350px">
+                                                        <div>
+                                                            @*<img style="width:100%; height:auto"
+                                                        src="../Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                                        alt="profile picture">
+                                                        <hr />
+                                                        <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                                                        <hr />*@
+                                                            @*<b class="mb-0" style="font-size:13px">@ViewData["ShortDescription"]</b>*@
+                                                            @*<ul>
+                                                        <li style="display:inline"><b>Start Date:</b>@ViewData["StartDate"]</li> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp |
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                        <li style="display:inline"><b>End Date:</b>@ViewData["EndDate"]</li>
+                                                        <li style="display:inline"><b>Updated Date:</b> @Html.DisplayFor(modelItem => item.DateUpdated)</li>
+                                                        </ul>*@
+                                                            @*<hr />*@
+                                                                @if (item.FromId == User.Identity.Name)
+                                                                {
+                                                                    <div class="card-header bg-info" style="margin-right:15px; margin-bottom:8px">
+                                                                        <h4 class="card-title" style="width:350px; color: white">Your Input</h4>
+                                                                    </div>
+                                                                }
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6>UserName</h6>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    @Html.DisplayFor(modelItem => item.FromId)
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6>Contribution</h6>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6>Guests</h6>
+                                                                </div>
+                                                                <div class="col-sm-5">
+                                                                    @Html.DisplayFor(modelItem => item.Qty)
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6>Arrive</h6>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-sm-5">
+                                                                    <h6>Leave</h6>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                                                </div>
+                                                            </div>
+                                                                @if (User.Identity.Name == item.FromId)
+                                                                {
+                                                                    <div class="row">
+                                                                        <div class="col-sm-9">
+                                                                            <h6>
+                                                                                @*<a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+                                                                                    <i class="fas fa-pencil-alt">
+
+                                                                                    </i>
+                                                                                </a>*@
+                                                                                <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-secondary bg-danger">Delete</a>
+                                                                                 <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-secondary bg-green">Edit</a>
+                                                                            </h6>
+                                                                        </div>
+                                                                        <div class="col-sm-1">
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                }
+                                                                @*<h6>Like</h6>
+                                                        @Html.DisplayFor(modelItem => item.IsDefault)
+                                                        <h6>Dislike</h6>
+                                                        @Html.DisplayFor(modelItem => item.IsArchived)*@
+                                                        </div>
+                                                        <br />
+                                                        @*<a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id" asp-route-title="@item.Title" asp-route-picture="@item.Picture">
+                                                    <i class="fas fa-pencil-alt">
+
+                                                    </i>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+
+                                                    </a>*@
+
+                                                    </div>
+                                                </div>
+                                                        </div>
+                                                    <hr />
+                                                    
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+                @*                <div class="card whitespacenowrap" style="margin: 10px">
+            <img class="card-img-top" style="width:100%; height:160px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="Card image cap">
+            <div class="card-body" style="height:280px">
+            <h5 class="card-title" style="color:black">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <hr />
+            <h8 class="card-text" style="color:dimgray">@Html.DisplayFor(modelItem => item.ShortDescription)</h8>
+            <hr />
+            <b class="fas fa-calendar mr-2">&nbsp&nbspStart: @Html.DisplayFor(modelItem => item.StartDate)</b>
+            <b class="fas fa-clock mr-2">&nbsp&nbspEnd: @Html.DisplayFor(modelItem => item.EndDate)</b>
+            </div>
+            <hr />
+            <div class="col" style="margin-left:65px">
+
+
+            <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+            <i class="fas fa-pencil-alt">
+
+            </i>
+            </a>
+
+
+            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+            <i class="fas fa-trash">
+            </i>
+
+            </a>
+
+            </div>
+            <br>
+            </div>
+            *@            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="container">
+                <div class="d-flex flex-row">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row mt-3">
+                                <div class="col-md-12 offset-md-1">
+                                    <div class="card card-secondary">
+                                        <div class="card-header bg-light">
+                                            <h4 class="card-title">Your Info</h4>
+                                        </div>
+                                        <div class="list-group">
+                                            <div class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col px-7">
+                                                        <div style="width:715px">
+                                                            @*<div>
+                                                            <img style="width:100%; height:auto"
+                                                            src="../Pictures/@ViewData["Picture"]"
+                                                            alt="profile picture">
+                                                            <hr />
+                                                            <h3>@ViewData["Title"]</h3>
+                                                            <hr />
+                                                            <ul>
+                                                            <li style="display:inline"><b>Start:</b> @ViewData["StartDate"]</li>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp |
+                                                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                            <li style="display:inline"><b>End:</b>@ViewData["EndDate"]</li>
+                                                            <li style="display:inline"><b>Updated:</b> @Html.DisplayFor(model => model.TblContent.DateUpdated)</li>
+                                                            </ul>
+                                                            <hr />
+                                                            <b class="mb-0" style="font-size:13px">@ViewData["ShortDescription"]</b>
+                                                            <p class="mb-0" style="font-size:13px">@Html.DisplayFor(model => model.TblContent.LongDescription)</p>
+                                                            <hr />
+                                                            </div>*@
+                                                            <section class="content">
+                                                                <form method="post">
+                                                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                                    <section class="content">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="card">
+                                                                                    @* <div class="card-header bg-light">
+                                                                                    <h6 class="card-text">Enter Your Info</h6>
+                                                                                    </div>*@
+                                                                                    <div class="card-body">
+                                                                                        @*<div class="form-group">
+                                                                                        <select asp-for="TblContent.ParentId" class="form-control" asp-items="ViewBag.ParentId"><option value="0">-- Select Event You Would Like to Participate --</option></select>
+                                                                                        </div>*@
+                                                                                        @*<br />*@
+                                                                                        @*<div class="form-group">
+                                                                                        <select asp-for="TblContent.Title" class="form-control" placeholder="What Would You Like To Do?" asp-items="ViewBag.Title"><option value="0">-- Select Title --</option></select>
+                                                                                        <span asp-validation-for="TblContent.Title" class="text-danger"></span>
+                                                                                        </div>*@
+                                                                                        <input type="hidden" asp-for="TblContent.Id" />
+                                                                                        <br />
+                                                                                        <div class="form-group">
+                                                                                            <input asp-for="TblContent.ShortDescription" class="form-control" placeholder="Your Contribution" />
+                                                                                            <span asp-validation-for="TblContent.ShortDescription" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group">
+                                                                                            <input asp-for="TblContent.Qty" class="form-control" placeholder="How Many People Coming with You?" />
+                                                                                            <span asp-validation-for="TblContent.Qty" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group">
+                                                                                            <input asp-for="TblContent.Price" class="form-control" placeholder="How Much Spent For Event Expenses" />
+                                                                                            <span asp-validation-for="TblContent.Price" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group">
+                                                                                            <input asp-for="TblContent.StartDate" class="form-control" placeholder="What time you will be coming?" />
+                                                                                            <span asp-validation-for="TblContent.Url" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group">
+                                                                                            <input asp-for="TblContent.EndDate" class="form-control" placeholder="What time you will be leaving?" />
+                                                                                            <span asp-validation-for="TblContent.EndDate" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group form-check">
+                                                                                            <label class="form-check-label">
+                                                                                                <input class="form-check-input" asp-for="TblContent.IsDefault" /> @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <br />
+                                                                                        <div class="form-group form-check">
+                                                                                            <label class="form-check-label">
+                                                                                                <input class="form-check-input" asp-for="TblContent.IsArchived" /> @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <hr />
+                                                                                        @*<div class="form-group">
+                                                                                        <div class="custom-file">
+                                                                                        Please Upload Your ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input asp-for="Upload" type="file" class="custom-file-input" id="customFile" placeholder="Upload Picture">
+                                                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                                        <span asp-validation-for="TblContent.Picture" class="text-danger"></span>
+                                                                                        </div>
+                                                                                        </div>*@
+                                                                                        <div class="form-group">
+                                                                                            <input type="submit" value="Save" class="btn btn-primary float-left" />
+                                                                                            @* <a asp-page="./Delete" asp-route-id="@Item.Id" class="btn btn-secondary bg-danger">Delete</a>*@
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </form>
+                                                            </section>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            @foreach (var item in Model.TblMyEvent)
+            {
+                <div class="container">
+                    <div class="d-flex flex-row">
+                        <section class="content">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-md-12 offset-md-1">
+                                        <div class="card card-secondary">
+                                            <div class="card-header bg-light">
+                                                <h4 class="card-title">Event you are attending</h4>
+                                            </div>
+                                            <div class="list-group">
+                                                <div class="list-group-item">
+                                                    <div class="row">
+                                                        <div class="col px-7" style="padding-right:30px">
+                                                            <div style="width:700px">
+                                                                <div>
+                                                                    @*<img style="width:100%; height:auto"
+                                                                src="../Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                                                alt="profile picture">
+                                                                <hr />
+                                                                <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                                                                <hr />*@
+                                                                    @*<b class="mb-0" style="font-size:13px">@ViewData["ShortDescription"]</b>*@
+                                                                    @*<ul>
+                                                                <li style="display:inline"><b>Start Date:</b>@ViewData["StartDate"]</li> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp |
+                                                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                                <li style="display:inline"><b>End Date:</b>@ViewData["EndDate"]</li>
+                                                                <li style="display:inline"><b>Updated Date:</b> @Html.DisplayFor(modelItem => item.DateUpdated)</li>
+                                                                </ul>*@
+                                                                    @*<hr />*@
+                                                                    <h6>Your contribution</h6>
+                                                                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                                                                    <h6>Guests You are planning to bring</h6>
+                                                                    @Html.DisplayFor(modelItem => item.Qty)
+                                                                    <h6>Your Expanses</h6>
+                                                                    @Html.DisplayFor(modelItem => item.Price)
+                                                                    <h6>Time you are planning to arrive</h6>
+                                                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                                                    <h6>Time you are planning to leave</h6>
+                                                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                                                    <h6>Like</h6>
+                                                                    @Html.DisplayFor(modelItem => item.IsDefault)
+                                                                    <h6>Dislike</h6>
+                                                                    @Html.DisplayFor(modelItem => item.IsArchived)
+                                                                </div>
+                                                                <br />
+                                                                <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id" asp-route-parentid="@item.ParentId" asp-route-title="@item.Title">
+                                                                    <i class="fas fa-pencil-alt">
+
+                                                                    </i>
+                                                                </a>
+                                                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                                                    <i class="fas fa-trash">
+                                                                    </i>
+
+                                                                </a>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+                @*                <div class="card whitespacenowrap" style="margin: 10px">
+            <img class="card-img-top" style="width:100%; height:160px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="Card image cap">
+            <div class="card-body" style="height:280px">
+            <h5 class="card-title" style="color:black">@Html.DisplayFor(modelItem => item.Title)</h5>
+            <hr />
+            <h8 class="card-text" style="color:dimgray">@Html.DisplayFor(modelItem => item.ShortDescription)</h8>
+            <hr />
+            <b class="fas fa-calendar mr-2">&nbsp&nbspStart: @Html.DisplayFor(modelItem => item.StartDate)</b>
+            <b class="fas fa-clock mr-2">&nbsp&nbspEnd: @Html.DisplayFor(modelItem => item.EndDate)</b>
+            </div>
+            <hr />
+            <div class="col" style="margin-left:65px">
+
+
+            <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+            <i class="fas fa-pencil-alt">
+
+            </i>
+            </a>
+
+
+            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+            <i class="fas fa-trash">
+            </i>
+
+            </a>
+
+            </div>
+            <br>
+            </div>
+            *@            }
+            <br />
+        </div>
+    </div>
+</div>
+<a style="margin-left:100px" asp-page="/AttendingEvents/Index"><b>Go Back</b></a>
+@*<h1>Event</h1>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.FromId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.FromId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.ToId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.ToId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.LongDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.LongDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Urlslug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Urlslug)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Icon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Icon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.DisplayOrder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.DisplayOrder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Qty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Qty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.DiscountPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.DiscountPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.IsActive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.IsDefault)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.IsDefault)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.IsArchived)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.IsArchived)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.DateUpdated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.DateUpdated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.DateEntered)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.DateEntered)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Category.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblEvent.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblEvent.Parent.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TblEvent?.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>*@
+@*<div>
+    <form method="post">
+        <h1>Data Entry for Attendee</h1>
+        <dl class="row">
+            <dt class="col-sm-4">
+                <input type="hidden" asp-for="TblContent.Id" />
+                @Html.DisplayNameFor(model => model.TblContent.Title)
+                <input asp-for="TblContent.Title" class="form-control" />
+            </dt>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TblContent.ShortDescription)
+                <input asp-for="TblContent.ShortDescription" class="form-control" />
+            </dt>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TblContent.Price)
+                <input asp-for="TblContent.Price" class="form-control" />
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TblContent.StartDate)
+                <input asp-for="TblContent.StartDate" class="form-control" />
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TblContent.EndDate)
+                <input asp-for="TblContent.EndDate" class="form-control" />
+            </dt>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.TblContent.Qty)
+                <input asp-for="TblContent.Qty" class="form-control" />
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+                <input class="form-check-input" asp-for="TblContent.IsDefault" />
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+                <input class="form-check-input" asp-for="TblContent.IsArchived" />
+            </dt>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TblContent.IsActive)
+                <input class="form-check-input" asp-for="TblContent.IsActive" />
+            </dt>
+        </dl>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<div>
+    <h1>Partial View for ALL attendees</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Event
+                </th>
+                <th>
+                    ShortDescription
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    StartDate
+                </th>
+                <th>
+                    EndDate
+                </th>
+                <th>
+                    Qty
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.TblAttendees)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromId)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShortDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qty)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>*@

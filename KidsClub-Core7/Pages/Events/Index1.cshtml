@@ -1,0 +1,54 @@
+﻿@page
+@model KidsClub.Pages.Events.Index1Model
+@{
+}
+<div class="container" style="margin-left:200px">
+    <div class="d-flex flex-row">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col-md-12 offset-md-1">
+                        <div class="card card-secondary">
+                            <div class="card-header bg-light">
+                                <h4 class="card-title">Event</h4>
+                            </div>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="row">
+                                        <div class="col px-7" style="padding-right:30px">
+                                            <div style="width:700px">
+                                                <div>
+                                                    <img style="width:100%; height:auto"
+                                                         src="../Pictures/@Html.DisplayFor(model => model.TblContent.Picture)"
+                                                         alt="profile picture">
+                                                    <hr />
+                                                    <h3>@Html.DisplayFor(model => model.TblContent.Title)</h3>
+                                                    <hr />
+                                                    <ul>
+                                                        <li style="display:inline"><b>Location:&nbsp&nbsp</b>@Html.DisplayFor(model => model.TblContent.Icon)</li>
+                                                        <br />
+                                                        <li style="display:inline"><b>Start:</b> @Html.DisplayFor(model => model.TblContent.StartDate)</li> &nbsp&nbsp&nbsp |
+                                                        &nbsp&nbsp&nbsp
+                                                        <li style="display:inline"><b>End:</b>@Html.DisplayFor(model => model.TblContent.EndDate)</li> 
+                                                    </ul>
+                                                    <hr />
+                                                    <p class="mb-0">@Html.DisplayFor(model => model.TblContent.ShortDescription)</p>
+                                                    <p class="mb-0">@Html.DisplayFor(model => model.TblContent.LongDescription)</p>
+                                                </div>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div style="margin-left:70px">
+        <a asp-page="./Index">Back to Events</a>
+    </div>
+</div>
+</div>

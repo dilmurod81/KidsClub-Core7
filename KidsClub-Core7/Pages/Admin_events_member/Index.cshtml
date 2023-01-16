@@ -1,0 +1,570 @@
+﻿@page
+@model KidsClub.Pages.Admin_events_member.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_member.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h5>Events</h5>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                   @* <li class="breadcrumb-item">
+                        <button class="btn bg-info float-right" style="margin-right: 4px">
+                            <a asp-page="./Index1">Event Attending User's List</a>
+                        </button>
+                    </li>*@
+                    <li class="breadcrumb-item">
+                        @*<button class="btn bg-info float-right" style="margin-right: 4px">
+                            <a asp-page="./Create">Create New Event</a>
+                        </button>*@
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+
+<section class="content">
+    <div class="container-fluid col-md-12">
+        <div class="row">
+            @foreach (var item in Model.TblContent)
+            {
+                <div class="col-md-4">
+                    
+                    <!-- Profile Image -->
+                    <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h3>
+                            </div>
+                        <div class="card-body box-profile">
+                            <a asp-page="./Details" asp-route-id="@item.Id">
+                            <div class="text-center">
+                                <img style="width:100%; height:180px"
+                                 src="../Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                 alt="profile picture">
+                            </div>
+                            </a>
+                            
+                            <ul class="list-group list-group-unbordered mb-1">
+                                <li class="list-group-item">
+                                        <strong><i class="fas fa-map mr-1"></i>Desctription</strong> <p class="float-right" style="color:dimgrey">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                                </li>
+                            </ul>
+                            
+                             <strong><i class="fas fa-book mr-1"></i>Location</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.Icon)
+                            </p>
+                            <hr>
+
+                            <strong><i class="fas fa-book mr-1"></i>Start Date</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-book mr-1"></i>End Date</strong>
+
+                            <p class="text-muted">
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </p>
+
+                            <hr>
+                            <div class="project-actions text-left">
+                                <p>
+                                    <label class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</label>
+                                    <label class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Likes 
+                                        
+                                        @{
+                                            var result = item.Likes - item.Active;
+                                        } 
+                                        @result
+                                    </label>
+                                    <span class="float-right">
+                                        <label class="link-black text-sm">
+                                            <i class="far fa-comments mr-1"></i>
+                                            Attendees (@Html.DisplayFor(modelItem => item.CountParentId))
+                                        </label>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="project-actions text-right">
+                               
+                                <a class="btn btn-info btn-sm bg-info" asp-page="./Details" asp-route-id="@item.Id">
+                                       I Will Attend
+                                </a>
+                                @*<a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+                                    <i class="fas fa-pencil-alt">
+
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+
+                                </a>*@
+
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    
+
+                </div>
+                
+            }
+            
+            
+            <!-- /.col -->
+            @*                <div class="col-md-6">
+            <div class="card card-primary" style="overflow:scroll">
+            <div class="card-header">
+            <h3 class="card-title">About Content</h3>
+            </div>
+
+            <!-- /.card-header -->
+            <div class="card-body" style="height:300px">
+            <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+            <!-- Post -->
+            <div class="post">
+            <div class="user-block">
+            <img class="img-circle img-bordered-sm" src="../../dist/img/logo_copy.png" alt="User Image">
+
+            <span class="username">
+            <a href="#">Content Description</a>
+            <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+            </span>
+            <span class="description">Date Entered -@Html.DisplayFor(modelItem => item.DateEntered)</span>
+
+            </div>
+            <br />
+            <!-- /.user-block -->
+            <h6>
+            @Html.DisplayFor(modelItem => item.LongDescription)
+            </h6>
+            </div>
+            </div>
+            <br />
+            <!-- /.tab-pane -->
+            </div>
+
+            <strong><i class="fas fa-book mr-1"></i> From</strong>
+
+            <p class="text-muted">
+            @Html.DisplayFor(modelItem => item.FromId)
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-map-marker-alt mr-1"></i> To</strong>
+
+            <p class="text-muted">@Html.DisplayFor(modelItem => item.ToId)</p>
+
+            <hr>
+
+            <strong><i class="fas fa-pencil-alt mr-1"></i> URL</strong>
+
+            <p class="text-muted">
+            @Html.DisplayFor(modelItem => item.Url)
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-book mr-1"></i> Price</strong>
+
+            <p class="text-muted">
+            @Html.DisplayFor(modelItem => item.Price)
+            </p>
+
+            </div>
+            <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            </div>
+            *@
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+
+@*<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h3>Content Page</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item">
+                        <button class="btn bg-info float-right" style="margin-right: 4px">
+                            <a asp-page="./Create">Create New Event</a>
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+
+<section class="content">
+    @foreach (var item in Model.TblContent)
+    {
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Events List</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                        <div class="row">
+                            <div class="col-12 col-sm-2">
+                                <div class="info-box bg-light bg-cyan">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center">Is Outdoor?</span>
+                                        <span class="info-box-number text-center">@Html.DisplayFor(modelItem => item.IsActive)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light bg-yellow">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center">Activity Level</span>
+                                        <span class="info-box-number text-center">@Html.DisplayFor(modelItem => item.IsArchived)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light bg-gray">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center ">Minimum duration</span>
+                                        <span class="info-box-number text-center ">@Html.DisplayFor(modelItem => item.DateUpdated)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Project Manager</h4>
+                                <div class="post">
+                                    <div class="user-block">
+                                        <div class="card-body box-profile">
+                                            <div class="text-center">
+                                                <img class="profile-user-img"
+                                                 src="../Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                                 alt="User profile picture">
+                                            </div>
+                                        </div>
+                                        <img class="img-circle img-bordered-lg" src="/Pictures/@Html.DisplayFor(modelItem => item.Icon)" alt="user image">
+                                        <span class="username">
+                                            <a href="#">Jonathan Burke Jr.</a>
+                                        </span>
+                                        <span class="description">Event Created - @Html.DisplayFor(modelItem => item.DateEntered)</span>
+                                    </div>
+                                    <!-- /.user-block -->
+                                    <p>
+                                        Lorem ipsum represents a long-held tradition for designers,
+                                        typographers and the like. Some people hate it and argue for
+                                        its demise, but others ignore.
+                                    </p>
+
+                                    <p>
+                                        <i class="link-black text-sm fas fa-link mr-1"></i>Is Project Still Active? - @Html.DisplayFor(modelItem => item.IsActive)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                        <h3 class="text-primary"><i class="fas fa-paint-brush"></i>@Html.DisplayFor(modelItem => item.Title)</h3>
+                        <p class="text-muted">
+                            @Html.DisplayFor(modelItem => item.ShortDescription)
+                        </p>
+                        <h5 class="mt-5 text-muted">Project files</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
+                            </li>
+                        </ul>
+                        <div class="text-center mt-5 mb-3">
+                            <a class="btn btn-sm btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</section>*@
+
+
+
+
+
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].ActivityTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].Activity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].ActivityLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].Effort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].QualifyMins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].IsIndoor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].IsOutdoor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblActivityInventory[0].DateEntered)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblActivityInventory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActivityLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Effort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualifyMins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIndoor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsOutdoor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntered)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
+@*@page
+@model KidsClub.Pages.Admin_events.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].FromId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].ToId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].LongDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Urlslug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DisplayOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DiscountPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsDefault)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].IsArchived)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DateUpdated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].DateEntered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TblContent[0].Parent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TblContent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LongDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urlslug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Icon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDefault)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsArchived)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateUpdated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

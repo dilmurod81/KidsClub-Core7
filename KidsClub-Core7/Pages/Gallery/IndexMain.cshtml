@@ -1,0 +1,52 @@
+﻿@page
+@model KidsClub.Pages.Gallery.IndexMainModel
+@{
+ }
+ <br />
+    <h4 style="text-align:center;">
+        Welcome To Our Gallery Page!
+    </h4>
+<br />
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a asp-page="/Gallery/Games">
+                <div class="card col-md-4 float-start text-center">
+                    <h4>
+                        <b class="nav-link text-dark">GAMES</b>
+                    </h4>
+                    <img src="/Images/games.png" alt="Games image" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Feel free to try games from our gallery game section!</p>
+                    </div>
+                </div>
+                </a>
+                <a asp-page="/Gallery/Pictures">
+                <div class="card col-md-4 float-start text-center">
+                    <h4>
+                        <b class="nav-link text-dark">PICTURES</b>
+                    </h4>
+                    <img src="/Images/kids.jpg" alt="picture" />
+                    <div class="card-body">
+                        <p class="card-text text-black">To see pictures or upload yours visit our picture gallery section!</p>
+                    </div>
+                </div>
+                </a>
+                <a asp-page="/Gallery/Video">
+                <div class="card col-md-4 float-start text-center">
+                    <h4>
+                        <b class="nav-link text-dark">VIDEOS</b>
+                    </h4>
+                    <img src="/Images/video.jpg" alt="video picture" />
+                    <div class="card-body">
+                        <p class="card-text text-black">Checkout and try our member's videos section!</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+<br />
+<br />
+
+

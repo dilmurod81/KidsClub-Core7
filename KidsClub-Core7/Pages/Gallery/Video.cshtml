@@ -1,0 +1,63 @@
+﻿@page
+@model KidsClub.Pages.Gallery.VideoModel
+@{
+    <div class="container">
+            <div class="d-flex flex-row">
+                <div class="col-md-2 me-2">
+                    <div class="card-header">
+                        Categories
+                    </div>
+                     <br>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-light">Cooking Videos</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Science Videos</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Education Videos</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Funny Videos</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Family Videos</button>
+                    </div>
+                </div>
+                <div class="col-md-05">
+                    <div class="card-header">
+                        Video Gallery
+                    </div>
+                    <br>
+                    <div class="container">
+                            <section class="content">
+                                <div class="container-fluid">
+                                        <div class="col-md-05">
+                                            <div class="card card-secondary">
+                                                    <div class="list-group-item">
+                                                                    <div>
+                                                                        <iframe width="600" height="400" src="https://www.youtube.com/embed/7uirGTpq0Lo" title="Abdullah Makes Salad" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                    </div>
+                                                                    
+                                                                    <h4>Abdullah is making salad</h4>
+                                                                    <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </section>
+                    </div>
+                </div>
+
+                <div class="col-md-4 me-5">
+                    <div class="card-header">
+                       Video List
+                    </div>
+                    <div class="btn-group-vertical" style="overflow:scroll; height:600px; margin-left:20px">
+                        @foreach (var item in Model.TblContent)
+                    {
+                            <iframe width="330" height="150" src="@Html.DisplayFor(modelItem => item.Url)" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="border-0" allowfullscreen></iframe>
+                            <br />
+                    }
+                        
+                    </div>
+                </div>
+            </div>
+    </div>
+}

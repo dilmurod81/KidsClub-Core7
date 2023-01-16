@@ -1,0 +1,152 @@
+﻿@page
+@model KidsClub.Pages.Admin_pictures.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblContent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.FromId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.FromId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.ToId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.ToId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.LongDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.LongDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Urlslug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Urlslug)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Icon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Icon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DisplayOrder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DisplayOrder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Qty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Qty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DiscountPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DiscountPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsActive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsDefault)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsArchived)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DateUpdated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DateUpdated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DateEntered)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DateEntered)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Category.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Parent.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TblContent.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,42 @@
+﻿@page
+@model KidsClub.Pages.blogs.Index2Model
+
+<div class="container">
+        <div class="d-flex flex-row">
+            <div class="col-md-2 me-3">
+                <div class="card-header">
+                     Blog List
+                </div>
+                <br>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-light">Health related articles</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Games articles</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Articles about Parents</button>
+                        <br>
+                        <button type="button" class="btn btn-light">Fun related articles</button>
+                        <br>
+                        <button type="button" class="btn btn-light">About Study</button>
+                    </div>
+            </div>
+            <div class="col-md-10 justify-content-center">
+                <div class="card-header">
+                    Blogs
+                </div>
+                <div id="header" style="text-align:center;">
+                <h4>@Html.DisplayFor(model => model.TblContent.Title)</h4>
+                <img src="/Pictures/@Html.DisplayFor(model => model.TblContent.Picture)" id="beach">
+                </div>
+                <div>
+                <p>@Html.DisplayFor(model => model.TblContent.LongDescription)</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+            
+      
+    
+    
+

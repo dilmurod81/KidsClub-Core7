@@ -1,0 +1,54 @@
+﻿@page
+@model KidsClub.Pages.Gallery.GamesModel
+@{
+    <div class="container">
+                <div class="d-flex flex-row">
+                    <div class="col-md-2 me-3">
+                        <div class="card-header">
+                            List of Games
+                        </div>
+                        <br>
+                        <div class="btn-group-vertical">
+                            <button type="button" class="btn btn-light">Duck Hunt</button>
+                            <br>
+                            <button type="button" class="btn btn-light">Typing Game</button>
+                            <br>
+                            <button type="button" class="btn btn-light">Tic Tac Toe</button>
+                            <br>
+                            <button type="button" class="btn btn-light">Simon Says</button>
+                            <br>
+                            <button type="button" class="btn btn-light">Pacman</button>
+                            <br>
+                            <button type="button" class="btn btn-light">Tetris</button>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-12 justify-content-center">
+                        <div class="card-header">
+                            Game Gallery
+                        </div>
+                        <div class="col-lg-13 overflow-hidden p-2">
+                            @foreach (var item in Model.TblContent)
+                    {
+                            <div class="col-md-3 game-div mt-4 me-4 float-start" style="height: 350px">
+                                <div class="card-header">
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </div>
+                                <div class="card-img">
+                                    <a href="@Html.DisplayFor(modelItem => item.Url)">
+                                        <img class="mt-4" style="height: 150px; width: 100%" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)">
+                                    </a>
+                                </div>
+                                <div class="card-body">
+                                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                                </div>
+
+                            </div>
+                    }
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+}

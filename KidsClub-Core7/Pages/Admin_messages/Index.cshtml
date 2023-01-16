@@ -1,0 +1,69 @@
+﻿@page
+@model KidsClub.Pages.Admin_messages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p>
+                <a asp-page="Create">Create New</a>
+            </p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            From
+                        </th>
+                        <th>
+                            To
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Title
+                        </th>
+                        <th>
+                            Message
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.TblContent)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FromId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ToId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ShortDescription)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LongDescription)
+                            </td>
+
+                            <td>
+                                <a asp-page="./Details" asp-route-id="@item.Id">Reply</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+

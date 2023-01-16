@@ -1,0 +1,50 @@
+﻿@page
+@model KidsClub.Pages.AttendingEvents.IndexModel
+
+<div>
+    <div class="container col-md-9" style="margin-left:15%">
+        <div style="text-align:center;">
+            <h4>Welcome To Events Page</h4>
+        </div>
+        @*<div>
+            <a asp-page="./Index1">
+                <h6 class="btn" style="text-align:center; text-decoration: underline; color: deepskyblue"><b>Events I'm Attending</b></h6>
+            </a>
+        </div>*@
+        <div class="row">
+            
+            @foreach (var item in Model.TblContent)
+            {
+                <div class="card whitespacenowrap" style="margin: 10px">
+                    <a class="btn" asp-page="./Details1" asp-route-id="@item.Id">
+                    <img class="card-img-top" style="width:100%; height:160px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="Card image cap">
+                    </a>
+                    <div class="card-body" style="height:100%">
+                        <h5 class="card-title" style="color:black">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <hr />
+                        <h8 class="card-text" style="color:dimgray">@Html.DisplayFor(modelItem => item.ShortDescription)</h8>
+                        <hr />
+                        <b class="fas fa-map mr-2">&nbsp&nbspLocation: </b>@Html.DisplayFor(modelItem => item.Icon)
+                        <hr />
+                        <b class="fas fa-calendar mr-2">&nbsp&nbspStart: @Html.DisplayFor(modelItem => item.StartDate)</b>
+                        <b class="fas fa-clock mr-2">&nbsp&nbspEnd: @Html.DisplayFor(modelItem => item.EndDate)</b>
+                    </div>
+                    <hr />
+                    <div class="col" style="margin-left:65px">
+                        <button>
+                            @*<a class="btn" asp-page="./Create" asp-route-id="@item.Id" asp-route-title="@item.Title" asp-route-picture="@item.Picture" asp-route-startdate="@item.StartDate" asp-route-enddate="@item.EndDate" asp-route-shortdescription="@item.ShortDescription">
+                                <b>Will Attend</b>
+                            </a>*@
+                            <a class="btn" asp-page="./Details1" asp-route-id="@item.Id">
+                                 <b>Will Attend</b>
+                            </a>
+                        </button>
+                    </div>
+                    <br>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

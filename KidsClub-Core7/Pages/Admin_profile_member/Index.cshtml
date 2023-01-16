@@ -1,0 +1,756 @@
+﻿@page
+@model KidsClub.Pages.Admin_profile_member.IndexModel
+
+@{
+    Layout = "~/Pages/Shared/_Layout_member.cshtml";
+}
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h5>Member Dashboard</h5>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Member Profile</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+    
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h4>Games</h4>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 5).Count() games</h6>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_games_member/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-secondary">
+                    <div class="inner">
+                        <h4>Messages</h4>
+                        @foreach(var item in Model.TblCount)
+                        {
+                            if(item.ToId == null)
+                            {
+                                item.ToId = "default";
+                            }
+                            item.ToId = item.ToId.Replace(" ", "");
+                        }
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 21 && x.ToId == User.Identity.Name).Count() messages</h6>
+                        
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_mailboxMng_member/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h4>Events</h4>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 6).Count() events</h6>
+
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_events_member/Index" class="small-box-footer">
+                        More info <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h4>Videos</h4>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 2).Count() videos</h6>
+
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_video_member/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h4>Testimonials</h4>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 1 && x.ParentId == null).Count() testimonials</h6>
+
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_testimonials_member/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+            </div>
+            <div class="col-lg-2 col-6">
+                <!-- small box -->
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h4>Articles</h4>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 4 && x.ParentId == null).Count() articles</h6>
+
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a asp-area="" asp-page="/Admin_blog_member/Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+            </div>
+
+            <!-- ./col -->
+        </div>
+        <!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-6 connectedSortable">
+               
+                @foreach (var item in Model.AspNetUser)
+                {
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Member Info</h3>
+                        </div>
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                    src="./Pictures/@Html.DisplayFor(modelItem => item.Picture)"
+                                    alt="User profile picture">
+                            </div>
+
+                            <h3 class="profile-username text-center">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</h3>
+
+                            <p class="text-muted text-center">Software Engineer</p>
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Phone</b> <a class="float-right">@Html.DisplayFor(modelItem => item.PhoneNumber)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Email</b> <a class="float-right">@Html.DisplayFor(modelItem => item.Email)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>DOB</b> <a class="float-right">@Html.DisplayFor(modelItem => item.Dob)</a>
+                                </li>
+                            </ul>
+
+
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">About Me</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
+
+                                    <p class="text-muted">
+                                        B.S. in Computer Science
+                                    </p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                                    <p class="text-muted">Malibu, California</p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                                    <p class="text-muted">
+                                        <span class="tag tag-danger">UI Design</span>
+                                        <span class="tag tag-success">Coding</span>
+                                        <span class="tag tag-info">Javascript</span>
+                                        <span class="tag tag-warning">PHP</span>
+                                        <span class="tag tag-primary">Node.js</span>
+                                    </p>
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <div class="project-actions text-right">
+
+                                <a class="btn btn-info btn-sm bg-info" asp-page="./Edit" asp-route-id="@item.Id">
+                                    <i class="fas fa-pencil-alt">
+
+                                    </i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+                                        
+                        </div>
+                }
+                <!-- TO DO List -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="ion ion-clipboard mr-1"></i>
+                            To Do List
+                        </h3>
+
+                        <div class="card-tools">
+                            <ul class="pagination pagination-sm">
+                                <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+                                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                                <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <ul class="todo-list" data-widget="todo-list">
+                            <li>
+                                <!-- drag handle -->
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <!-- checkbox -->
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                                    <label for="todoCheck1"></label>
+                                </div>
+                                <!-- todo text -->
+                                <span class="text">Design a nice theme</span>
+                                <!-- Emphasis label -->
+                                <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
+                                <!-- General tools such as edit or delete-->
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
+                                    <label for="todoCheck2"></label>
+                                </div>
+                                <span class="text">Make the theme responsive</span>
+                                <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                                    <label for="todoCheck3"></label>
+                                </div>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                                    <label for="todoCheck4"></label>
+                                </div>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                                    <label for="todoCheck5"></label>
+                                </div>
+                                <span class="text">Check your messages and notifications</span>
+                                <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="handle">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </span>
+                                <div class="icheck-primary d-inline ml-2">
+                                    <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                                    <label for="todoCheck6"></label>
+                                </div>
+                                <span class="text">Let theme shine like a star</span>
+                                <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
+                                <div class="tools">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-trash-o"></i>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer clearfix">
+                        <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                    </div>
+                </div>
+                
+                
+            </section>
+
+            <!-- /.Left col -->
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-6 connectedSortable">
+
+                <!-- DIRECT CHAT -->
+                <div class="card direct-chat direct-chat-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Direct Chat</h3>
+
+                        <div class="card-tools">
+                            Messages <span title="3 New Messages" class="badge badge-primary">@Model.TblCount.Where(x => x.CategoryId == 21 && x.ToId == User.Identity.Name).Count()</span>
+                            @*<button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>*@
+                            <button type="button" class="btn btn-tool" title="Contacts" data-widget="chat-pane-toggle">
+                                <i class="fas fa-comments"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <!-- Conversations are loaded here -->
+                        <div class="direct-chat-messages">
+                            @if(Model.TblSender == null)
+                            {
+                                @foreach (var item in Model.TblSenderInitial)
+                                {
+
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-infos clearfix">
+                                            <span class="direct-chat-name float-left">@Html.DisplayFor(modelItem => item.FromId)</span>
+                                            <span class="direct-chat-timestamp float-right">@Html.DisplayFor(modelItem => item.DateEntered)</span>
+                                        </div>
+                                        <!-- /.direct-chat-infos -->
+                                        <img class="direct-chat-img" src="/Pictures/user_2.jpg" alt="" />
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                            @Html.DisplayFor(modelItem => item.ShortDescription)
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+
+                                    @if (Model.TblRe == null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+
+                                        <div class="direct-chat-msg right">
+                                            <div class="direct-chat-infos clearfix">
+                                                <span class="direct-chat-name float-right">@Model.TblRe.FromId</span>
+                                                <span class="direct-chat-timestamp float-left">@Model.TblRe.DateEntered</span>
+                                            </div>
+                                            <!-- /.direct-chat-infos -->
+                                            <img class="direct-chat-img" src="./Pictures/user.png" alt="">
+                                            <!-- /.direct-chat-img -->
+                                            <div class="direct-chat-text">
+                                                @Model.TblRe.Title
+                                                @Model.TblRe.ShortDescription
+                                            </div>
+                                            <!-- /.direct-chat-text -->
+                                        </div>
+
+                                    }
+
+
+                                }
+                            } 
+
+                            else 
+
+                            {
+                            @foreach (var item in Model.TblSender)
+                            {
+
+                                <div class="direct-chat-msg">
+                                    <div class="direct-chat-infos clearfix">
+                                        <span class="direct-chat-name float-left">@Html.DisplayFor(modelItem => item.FromId)</span>
+                                        <span class="direct-chat-timestamp float-right">@Html.DisplayFor(modelItem => item.DateEntered)</span>
+                                    </div>
+                                    <!-- /.direct-chat-infos -->
+                                    <img class="direct-chat-img" src="/Pictures/user_2.jpg" alt="" />
+                                    <!-- /.direct-chat-img -->
+                                    <div class="direct-chat-text">
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                        @Html.DisplayFor(modelItem => item.ShortDescription)
+                                    </div>
+                                    <!-- /.direct-chat-text -->
+                                </div>
+                               
+                                @if(Model.TblRe == null)
+                                    {
+                                   
+                                    }
+                                    else
+                                    {
+                                    
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-infos clearfix">
+                                            <span class="direct-chat-name float-right">@Model.TblRe.FromId</span>
+                                            <span class="direct-chat-timestamp float-left">@Model.TblRe.DateEntered</span>
+                                        </div>
+                                        <!-- /.direct-chat-infos -->
+                                        <img class="direct-chat-img" src="./Pictures/user.png" alt="">
+                                        <!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            @Model.TblRe.Title
+                                            @Model.TblRe.ShortDescription
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+
+                                    }
+
+
+                            }
+                            }
+                        </div>
+
+                        <!-- Contacts are loaded here -->
+                        <div class="direct-chat-contacts">
+                            <ul class="contacts-list">
+                                @foreach (var item in Model.TblUsers)
+                                {
+                                    <li>
+                                        <a asp-page="/Admin_profile_member/index" asp-route-id="@item.Id" asp-route-fromid="@item.FromId.Replace(" ","")">
+                                            <img class="contacts-list-img" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="">
+
+                                            <div class="contacts-list-info">
+                                                <span class="contacts-list-name">
+                                                    @Html.DisplayFor(modelItem => item.FromId)
+                                                    <small class="contacts-list-date float-right">@Html.DisplayFor(modelItem => item.DateEntered)</small>
+                                                </span>
+                                                <span class="contacts-list-msg">@Html.DisplayFor(modelItem => item.Title)</span>
+                                                <span class="contacts-list-msg">@Html.DisplayFor(modelItem => item.ShortDescription)</span>
+                                            </div>
+                                            <!-- /.contacts-list-info -->
+                                        </a>
+                                    </li>
+                                }
+                                <!-- End Contact Item -->
+                                <!-- End Contact Item -->
+                            </ul>
+                            <!-- /.contacts-list -->
+                        </div>
+                        <!-- /.direct-chat-pane -->
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <form method="post">
+                            @*<div class="form-group">
+                            <textarea asp-for="TblContent.LongDescription" id="compose-textarea" class="form-control" style="height: 200px" placeholder="Please write your massege here:">
+                            </textarea>
+                            </div>*@
+                            <div class="input-group">
+                                <input asp-for="TblContent.Title" placeholder="Type Message ..." class="form-control">
+                                <span class="input-group-append">
+                                    <button type="submit" value="Create" class="btn btn-primary">Send</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+                <!--/.direct-chat -->
+
+                <!-- Calendar -->
+                <div class="card bg-gradient-success">
+                    <div class="card-header border-0">
+
+                        <h3 class="card-title">
+                            <i class="far fa-calendar-alt"></i>
+                            Calendar
+                        </h3>
+                        <!-- tools card -->
+                        <div class="card-tools">
+                            <!-- button with a dropdown -->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                                <div class="dropdown-menu" role="menu">
+                                    <a href="#" class="dropdown-item">Add new event</a>
+                                    <a href="#" class="dropdown-item">Clear events</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">View calendar</a>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <!-- /. tools -->
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body pt-0">
+                        <!--The calendar -->
+                        <div id="calendar" style="width: 100%"></div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+                <!-- Map card -->
+                <div class="card bg-gradient-primary">
+                    <div class="card-header border-0">
+                        <h3 class="card-title">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            Visitors
+                        </h3>
+                        <!-- card tools -->
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-primary btn-sm daterange" title="Date range">
+                                <i class="far fa-calendar-alt"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary btn-sm" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <!-- /.card-tools -->
+                    </div>
+                    <div class="card-body">
+                        <div id="world-map" style="height: 250px; width: 100%;"></div>
+                    </div>
+                    <!-- /.card-body-->
+                    <div class="card-footer bg-transparent">
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <div id="sparkline-1"></div>
+                                <div class="text-white">Visitors</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <div id="sparkline-2"></div>
+                                <div class="text-white">Online</div>
+                            </div>
+                            <!-- ./col -->
+                            <div class="col-4 text-center">
+                                <div id="sparkline-3"></div>
+                                <div class="text-white">Sales</div>
+                            </div>
+                            <!-- ./col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+                <!-- /.card -->
+                <!-- solid sales graph -->
+                <!-- /.card -->
+               
+                <!-- /.card -->
+            </section>
+            <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>*@
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].NormalizedUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].NormalizedEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].EmailConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].PasswordHash)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].SecurityStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].ConcurrencyStamp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].PhoneNumberConfirmed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].TwoFactorEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].LockoutEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].LockoutEnabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].AccessFailedCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AspNetUser[0].DateEntered)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AspNetUser) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormalizedUserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NormalizedEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailConfirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PasswordHash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecurityStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConcurrencyStamp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumberConfirmed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TwoFactorEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LockoutEnabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessFailedCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntered)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@

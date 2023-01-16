@@ -1,0 +1,485 @@
+﻿@page
+@model KidsClub.Pages.Admin_pictures_member.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonita Kids Club | User Profile</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/Styles/like.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Rating.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Styles/like.css" asp-append-version="true" />
+
+</head>
+@*sidebar-mini sidebar-collapse*@
+<body class="hold-transition  layout-navbar-fixed layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="~/dist/img/logo_copy.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/Admin_profile_member" class="nav-link">Home</a>
+                </li>
+            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+
+
+                <li class="nav-item">
+                    <partial name="_LoginPartial" />
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+
+            <a asp-area="" asp-page="/Admin_profile_member/Index" class="brand-link">
+                <img src="~/dist/img/logo_copy.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 1">
+                <span class="brand-text font-weight-light">Bonita Kids Club</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">MEMBER PAGE</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        @*<li class="nav-item">
+                        <a asp-area="" asp-page="/Admin_dashboard/Index" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Dashboard</p>
+                        </a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_profile_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_events_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Events</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_pictures_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>Pictures</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_blog_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Blogs</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_testimonials_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>Testimonials</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_video_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Videos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_games_member/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Games</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_calendar_member/Index" class="nav-link">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Calendar
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_mailboxMng_member/Index" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Mailbox
+                                </p>
+                            </a>
+                        </li>
+                        @* <li class="nav-item">
+                        <a asp-area="" asp-page="/Admin_invoice/Index" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Invoice</p>
+                        </a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_search/Index" class="nav-link">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>Search</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <br />
+        <div class="content-wrapper" style="overflow:scroll">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="container">
+                            <div class="d-flex flex-row">
+                                <section class="content">
+                                    <div class="container-fluid">
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <div class="card card-primary">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Picture</h4>
+                                                    </div>
+                                                    <div class="list-group">
+                                                        <div class="list-group-item">
+                                                            <div class="row">
+                                                                <div class="col px-7">
+                                                                    <div style="width:510px">
+                                                                        <div class="card p-3 text-center px-4">
+
+                                                                            <div>
+                                                                                <img style="width:100%; height:auto"
+                                                                                     src="../Pictures/@Html.DisplayFor(model => model.TblPicture.Picture)"
+                                                                                     alt="profile picture">
+                                                                                <hr />
+                                                                                <h3>@Html.DisplayFor(model => model.TblPicture.Title)</h3>
+                                                                                <hr />
+                                                                                <p class="mb-0">@Html.DisplayFor(model => model.TblPicture.ShortDescription)</p>
+                                                                                <p class="mb-0 float-right">@Html.DisplayFor(model => model.TblPicture.DateEntered)</p>
+                                                                                <br />
+                                                                                <br />
+                                                                                <div class="project-actions text-left">
+                                                                                    <p>
+                                                                                        <label class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</label>
+                                                                                        <label class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like
+                                                                                            @{
+                                                                                                var result = Model.TblPicture.Likes - Model.TblPicture.Active;
+                                                                                            }
+                                                                                            @result
+                                                                                        </label>
+                                                                                        <span class="float-right">
+                                                                                            <label class="link-black text-sm">
+                                                                                                <i class="far fa-comments mr-1"></i> Comments (@Html.DisplayFor(model => model.vwContentChildCountMurod.CountParentId))
+                                                                                            </label>
+                                                                                        </span>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </section>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="col-sm-6">
+                            <div class="container">
+                                <div class="d-flex flex-row">
+                                    <section class="content">
+                                        <div class="container-fluid">
+                                            <div class="row mt-3">
+                                                <div class="col-md-12">
+                                                    <div class="card card-primary">
+                                                        <div class="card-header" style="width:500px">
+                                                            <h4 class="card-title">Comments (@Model.TblComments.Count())</h4>
+                                                        </div>
+                                                        <div class="list-group">
+                                                            @foreach (var item in Model.TblComments)
+                                                            {
+                                                                <div class="card card-outline">
+                                                                    <div class="row">
+                                                                        <div class="col px-4" style="padding-top:5px">
+                                                                            <div style="width:460px">
+                                                                                <div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-5">
+                                                                                            <b>Username</b>
+                                                                                        </div>
+                                                                                        <div class="col-sm-7">
+                                                                                            @Html.DisplayFor(modelItem => item.FromId)
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-5">
+                                                                                            <b>Opinion</b>
+                                                                                        </div>
+                                                                                        <div class="col-sm-7">
+                                                                                            @Html.DisplayFor(modelItem => item.Title)
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-5">
+                                                                                            <b>Experience</b>
+                                                                                        </div>
+                                                                                        <div class="col-sm-7">
+                                                                                            @Html.DisplayFor(modelItem => item.ShortDescription)
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <hr />
+                                                                                    @*<div class="project-actions text-left">
+                                                                                <p>
+                                                                                <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> Share</a>
+                                                                                <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> Like</a>
+                                                                                <span class="float-right">
+                                                                                <a asp-page="./Details" asp-route-id="@item.Id" class="link-black text-sm">
+                                                                                <i class="far fa-comments mr-1"></i> Comments (5)
+                                                                                </a>
+                                                                                </span>
+                                                                                </p>
+                                                                                </div>*@
+                                                                                    @{
+                                                                                        string trimmed = item.FromId;
+                                                                                        item.FromId = trimmed.Replace(" ", "");
+                                                                                    }
+                                                                                    @if (User.Identity.Name == item.FromId)
+                                                                                    {
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-6">
+                                                                                            </div>
+                                                                                            <div class="col-sm-5">
+
+                                                                                                <a class="btn-sm btn-info" asp-page="./EditPicture" asp-route-id="@item.Id">Edit</a>
+                                                                                                &nbsp;&nbsp;
+
+                                                                                                <a asp-page="./Delete" asp-route-id="@item.Id" class="btn-sm btn-secondary bg-danger">Delete</a>
+
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    }
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="container">
+                                <div class="d-flex flex-row">
+                                    <section class="content">
+                                        <div class="container-fluid">
+                                            <div class="row mt-1">
+                                                <div class="col-md-12">
+                                                    <div class="card card-light">
+                                                        <div class="card-header">
+                                                            <h4 class="card-title">Your Comment</h4>
+                                                        </div>
+                                                        <div class="list-group">
+                                                            <div class="list-group-item">
+                                                                <div class="row">
+                                                                    <div class="col px-7">
+                                                                        <div style="width:460px">
+                                                                            <section class="content">
+                                                                                <form method="post">
+                                                                                    <section class="content">
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-12">
+                                                                                                <div class="card">
+                                                                                                    <div class="card-body">
+
+                                                                                                        <input type="hidden" asp-for="TblCommentor.Id" />
+                                                                                                        <input type="hidden" asp-for="TblCommentor.CategoryId" />
+                                                                                                        <br />
+                                                                                                        <div class="form-group">
+                                                                                                            <input asp-for="TblCommentor.Title" class="form-control" placeholder="Your Opinion" />
+                                                                                                            <span asp-validation-for="TblCommentor.Title" class="text-danger"></span>
+                                                                                                        </div>
+                                                                                                        <br />
+                                                                                                        <div class="form-group">
+                                                                                                            <input asp-for="TblCommentor.ShortDescription" class="form-control" placeholder="Details of Your Opinion" />
+                                                                                                            <span asp-validation-for="TblCommentor.ShortDescription" class="text-danger"></span>
+                                                                                                        </div>
+                                                                                                        <br />
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-3">
+                                                                                                                <labels class="btns" id="green"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true"><input type="hidden" id="like" asp-for="TblCommentor.IsDefault" /></i></labels>&nbsp;&nbsp;
+                                                                                                                <labels class="btns" id="red"><i class="fa fa-thumbs-down fa-lg" aria-hidden="true"><input type="hidden" id="dislike" asp-for="TblCommentor.IsArchived" /></i></labels>
+                                                                                                            </div>
+                                                                                                            <div class="col-3">
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        <br />
+                                                                                                        <div class="form-group">
+                                                                                                            <input type="submit" value="Save" class="btn btn-primary float-left" />&nbsp; | <a asp-page="/Admin_pictures_member/Index"><b>Go Back</b></a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </form>
+                                                                            </section>
+                                                                            <br />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2014-2022 <a href="#">Bonita Kids Club</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 3.2.0
+            </div>
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+
+
+        <!-- /.control-sidebar -->
+
+
+        <script type="text/javascript">
+            var btn1 = document.querySelector('#green');
+            var btn2 = document.querySelector('#red');
+            var x = document.getElementById("like");
+            var y = document.getElementById("dislike");
+
+
+            btn1.addEventListener('click', function () {
+
+                if (btn2.classList.contains('red')) {
+                    btn2.classList.remove('red');
+                }
+                this.classList.toggle('green');
+                if (y.value == "true" || x.value == "true") {
+                    y.value = "false"
+                    x.value = "false"
+                } else {
+                    x.value = "true"
+                }
+
+
+
+            });
+
+            btn2.addEventListener('click', function () {
+
+                if (btn1.classList.contains('green')) {
+                    btn1.classList.remove('green');
+                }
+                this.classList.toggle('red');
+                if (x.value == "true" || y.value == "true") {
+                    x.value = "false"
+                    y.value = "false"
+                } else {
+                    y.value = "true"
+                }
+
+
+            });
+        </script>
+        <script src="https://use.fontawesome.com/fe459689b4.js" crossorigin="anonymous"></script>
+
+        <!-- jQuery -->
+        <script src="../../plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../../dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="../../dist/js/demo.js"></script>
+        <!-- bs-custom-file-input -->
+        <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+        <!-- Page specific script -->
+        <script>
+            $(function () {
+                bsCustomFileInput.init();
+            });
+        </script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,127 @@
+﻿@page
+@model KidsClub.Pages.AttendingEvents.CreateModel
+@{
+}
+<div class="container" style="margin-left:200px">
+    <div class="d-flex flex-row">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mt-3">
+                    <div class="col-md-12 offset-md-1">
+                        <div class="card card-secondary">
+                            <div class="card-header bg-light">
+                                <h4 class="card-title">Enter Your Info</h4>
+                            </div>
+                            <div class="list-group">
+                                <div class="list-group-item">
+                                    <div class="row">
+                                        <div class="col px-7" style="padding-right:30px">
+                                            <div style="width:700px">
+                                                <div>
+                                                    <img style="width:100%; height:auto"
+                                                        src="../Pictures/@ViewData["Picture"]"
+                                                         alt="profile picture">
+                                                    <hr />
+                                                    <h3>@ViewData["Title"]</h3>
+                                                    <hr />
+                                                    <ul>
+                                                        <li style="display:inline"><b>Start:</b> @ViewData["StartDate"]</li>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp |
+                                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                        <li style="display:inline"><b>End:</b>@ViewData["EndDate"]</li> 
+                                                       @* <li style="display:inline"><b>Updated:</b> @Html.DisplayFor(model => model.TblContent.DateUpdated)</li>*@
+                                                    </ul>
+                                                    <hr />
+                                                    <b class="mb-0" style="font-size:13px">@ViewData["ShortDescription"]</b>
+                                                    <p class="mb-0" style="font-size:13px">@Html.DisplayFor(model => model.TblContent.LongDescription)</p>
+                                                    <hr />
+                                                </div>
+                                                <section class="content">
+                                                    <form method="post" enctype="multipart/form-data">
+                                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                                        <section class="content">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="card">
+                                                                       @* <div class="card-header bg-light">
+                                                                            <h6 class="card-text">Enter Your Info</h6>
+                                                                        </div>*@
+                                                                        <div class="card-body">
+                                                                            @*<div class="form-group">
+                                                                                <select asp-for="TblContent.ParentId" class="form-control" asp-items="ViewBag.ParentId"><option value="0">-- Select Event You Would Like to Participate --</option></select>
+                                                                            </div>*@
+                                                                            @*<br />*@
+                                                                            @*<div class="form-group">
+                                                                                <select asp-for="TblContent.Title" class="form-control" placeholder="What Would You Like To Do?" asp-items="ViewBag.Title"><option value="0">-- Select Title --</option></select>
+                                                                                <span asp-validation-for="TblContent.Title" class="text-danger"></span>
+                                                                            </div>*@
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input asp-for="TblContent.ShortDescription" class="form-control" placeholder="Pleas Provide Short Description Of Your Contribution" />
+                                                                                <span asp-validation-for="TblContent.ShortDescription" class="text-danger"></span>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input asp-for="TblContent.Qty" class="form-control" placeholder="How Many People Would You Like To Bring?" />
+                                                                                <span asp-validation-for="TblContent.Qty" class="text-danger"></span>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input asp-for="TblContent.Price" class="form-control" placeholder="How Much You Spent For Event Expenses" />
+                                                                                <span asp-validation-for="TblContent.Price" class="text-danger"></span>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input asp-for="TblContent.StartDate" class="form-control" placeholder="What time you will be coming?" />
+                                                                                <span asp-validation-for="TblContent.Url" class="text-danger"></span>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input asp-for="TblContent.EndDate" class="form-control" placeholder="What time you will be leaving?" />
+                                                                                <span asp-validation-for="TblContent.EndDate" class="text-danger"></span>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input" asp-for="TblContent.IsDefault" /> @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+                                                                                </label>
+                                                                            </div>
+                                                                            <br />
+                                                                            <div class="form-group form-check">
+                                                                                <label class="form-check-label">
+                                                                                    <input class="form-check-input" asp-for="TblContent.IsArchived" /> @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+                                                                                </label>
+                                                                            </div>
+                                                                            <hr />
+                                                                            @*<div class="form-group">
+                                                                                <div class="custom-file">
+                                                                                    Please Upload Your ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input asp-for="Upload" type="file" class="custom-file-input" id="customFile" placeholder="Upload Picture">
+                                                                                   <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                                  <span asp-validation-for="TblContent.Picture" class="text-danger"></span>
+                                                                                </div>
+                                                                            </div>*@
+                                                                            <br />
+                                                                            <div class="form-group">
+                                                                                <input type="submit" value="Save" class="btn btn-primary float-left" />
+                                                                                <a asp-page="/AttendingEvents/Index" class="btn btn-secondary bg-green">Go Back</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </form>
+                                                </section>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

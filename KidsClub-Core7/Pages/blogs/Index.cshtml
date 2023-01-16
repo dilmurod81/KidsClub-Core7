@@ -1,0 +1,25 @@
+﻿@page
+@model KidsClub.Pages.blogs.IndexModel
+
+<div>
+    <div class="container col-md-9" style="margin-left:15%">
+        <div style="text-align:center;">
+        <h4>Welcome To Our Blog</h4>
+        </div>
+        <br />
+        <div class="row">
+            @foreach (var item in Model.TblContent)
+            {
+            <div class="card whitespacenowrap" style="margin: 10px">
+                <a asp-page="./Index2" asp-route-id="@item.Id">
+                    <img class="card-img-top" style="height:180px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)" alt="Card image cap">
+                    <div class="card-body" style="height:280px">
+                        <h5 class="card-title" style="color:black">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <p class="card-text" style="color:dimgray">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                    </div>
+                    </a>
+            </div>
+            }
+        </div>
+    </div>
+</div>

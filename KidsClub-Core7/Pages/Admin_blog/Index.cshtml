@@ -1,0 +1,96 @@
+﻿@page
+@model KidsClub.Pages.Admin_blog.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+<br />
+<div class="container">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h4>Blogs</h4>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn bg-info float-right" style="margin-right: 4px">
+                    <a asp-page="./Create">Add New Article</a>
+                </button>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+    <div class="container">
+        <div class="d-flex flex-row">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row mt-3">
+                        <div class="col-md-9 offset-md-1">
+                            <div class="card card-secondary">
+                                <div class="card-header bg-light">
+                                    <h4 class="card-title">Articles</h4>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        <div class="row">
+                                            <div class="col px-4">
+                                                <div style="width:1020px">
+                                                    <div>
+                                                        <img src="/Pictures/blog-information-website-concept-workplace-background-text-view-above-127465079.jpg" />
+                                                    </div>
+                                                    <br />
+                                                    <h3>Article Management Page</h3>
+                                                    <p class="mb-0">Please select article below you want to edit or delete. Changes will affect the user site blogs as well.</p>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @foreach (var item in Model.TblContent)
+                                    {
+                                        <div class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <img style="width:340px" src="/Pictures/@Html.DisplayFor(modelItem => item.Picture)">
+                                                </div>
+                                                <div class="col px-4">
+                                                    <div>
+                                                        <div class="float-right">@Html.DisplayFor(modelItem => item.DateEntered)</div>
+                                                        <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                                                        <p class="mb-0">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="project-actions text-right">
+                                                    <a class="btn btn-info btn-sm bg-green" asp-page="../blogs/Index2" asp-route-id="@item.Id">
+                                                        <i class="fas fa-folder">
+
+                                                        </i>
+                                                    </a>
+                                                    <a class="btn btn-info btn-sm bg-blue" asp-page="./Edit" asp-route-id="@item.Id">
+                                                        <i class="fas fa-pencil-alt">
+
+                                                        </i>
+                                                    </a>
+                                                    <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">
+                                                        <i class="fas fa-trash">
+                                                        </i>
+
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+   

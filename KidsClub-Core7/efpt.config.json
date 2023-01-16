@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 2,
-   "ContextClassName": "KidsClub_Core7Context",
+   "ContextClassName": "KidsClubContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -9,7 +9,7 @@
    "OutputContextPath": "EFCorePowerTool\/Context",
    "OutputPath": "EFCorePowerTool\/Entities",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "KidsClub-Core7",
+   "ProjectRootNamespace": "KidsClub",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,

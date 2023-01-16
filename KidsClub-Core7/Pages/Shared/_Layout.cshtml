@@ -1,0 +1,202 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@{
+}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Kid's Club</title>
+        <link rel="stylesheet" href="~/Styles/like.css" asp-append-version="true" />
+        @RenderSection("Styles", false)
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+        <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Rating.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/Test.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/table.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/KidsClub.styles.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+        <link rel="stylesheet" href="~/css/School-Education-1.css" media="screen">
+        <script class="u-script" type="text/javascript" src="~/lib/jquery/dist/jquery.js" defer=""></script>
+        <script class="u-script" type="text/javascript" src="~/js/nicepage.js" defer=""></script>
+        <script src="https://kit.fontawesome.com/62528729b3.js" crossorigin="anonymous"></script>
+        <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+         
+    </head>
+    <body>
+        <header class="u-clearfix u-header bg-white" id="sec-d515">
+            <div class="d-flex flex-column align-items-end icon-register-block">
+                <partial name="_LoginPartial" />
+            </div>
+            <div class="u-align-left u-clearfix u-sheet u-sheet-1 mx-5">
+                <h3 class="u-align-center-xs u-headline u-text u-text-palette-1-base u-text-1">
+                    <a href="/"><img src="~/Images/logo.png"/></a>
+                </h3>
+                <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                    <div class="menu-collapse" style="text-transform: uppercase; font-weight: 600;">
+                        <a class="u-btn-text u-button-style u-nav-link" href="#" style="padding: 4px 0px; font-size: calc(1em + 8px);">
+                            <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302">
+                                <use xlink:href="#svg-a760"></use>
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-a760" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;" xml:space="preserve" class="u-svg-content">
+                                
+                                    <rect y="36" width="302" height="30">
+
+                                    </rect>
+                                    <rect y="236" width="302" height="30">
+
+                                    </rect>
+                                    <rect y="136" width="302" height="30">
+
+                                    </rect>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="u-custom-menu u-nav-container">
+                        <ul class="u-nav u-spacing-0 u-unstyled u-nav-1">
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-area="" asp-page="/About/Index">About Us</a>
+                            </li>
+                            @{
+
+                                if (User.IsInRole("Admin"))
+                                {
+                                    
+                                            <li class="u-nav-item">
+                                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-area="" asp-page="/Admin_dashboard/index">Admin</a>
+                                            </li>
+                                 
+                                }
+                            }
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-area="" asp-page="/Gallery/indexMain">Gallery</a>
+                                <div class="u-nav-popup">
+                                    <ul class="u-nav u-unstyled" style="padding:10px;">
+                                        <li class="u-nav-item" style="padding-bottom:10px;">
+                                            <a class="u-button-style u-nav-link" asp-area="" asp-page="/Gallery/Games"><img src="~/Pictures/xBox.svg" class="icon-register" />Games</a>
+                                        </li>
+                                        <li class="u-nav-item" style="padding-bottom:10px;">
+                                            <a class="u-button-style u-nav-link" asp-area="" asp-page="/Gallery/Video"><img src="~/Images/video-player.png" class="icon-register" />Videos</a>
+                                        </li>
+                                        <li class="u-nav-item">
+                                            <a class="u-button-style u-nav-link" asp-area="" asp-page="/Gallery/Pictures"><img src="~/Images/picture.png" class="icon-register" />Pictures</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                           @* <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/AttendingEvents/index">Events</a>
+                            </li>
+                            } else 
+                            {*@
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/Events/index">Events</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/blogs/index">Blogs</a>
+                            </li>
+                           @* @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/UserTestimonials/index">Testimonials</a>
+                                </li>
+                            }
+                            else
+                            {*@
+                            <li class="u-nav-item">
+                                    <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/Testimonials/index">Testimonials</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-area="" asp-page="/Messages/Create">Contact Us</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/Admin_profile_member/index">Member Area</a>
+                            </li>
+                            <li class="u-nav-item">
+                                <a class="u-button-style u-nav-link u-text-grey-dark-3" asp-page="/ParentPermission/index">Parental Permission</a>
+                            </li>
+                            
+                        }
+                            
+                        </ul>
+                    </div>
+                    <div class="u-custom-menu u-nav-container-collapse">
+                        <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                            <div class="u-inner-container-layout u-sidenav-overflow">
+                                <div class="u-menu-close"></div>
+                                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-3">
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="Home.html">Home</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link">About Us</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link" href="Page-5.html">Gallery</a><div class="u-nav-popup">
+                                            <ul class="u-nav u-unstyled">
+                                                <li class="u-nav-item">
+                                                    <a class="u-button-style u-nav-link">Games</a>
+                                                </li>
+                                                <li class="u-nav-item">
+                                                    <a class="u-button-style u-nav-link">Videos</a>
+                                                </li>
+                                                <li class="u-nav-item">
+                                                    <a class="u-button-style u-nav-link">Pictures</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link">Blogs</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link">Category</a>
+                                    </li>
+                                    <li class="u-nav-item">
+                                        <a class="u-button-style u-nav-link">Contacts</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted position-absolute">
+            <div class="container">
+                &copy; 2022 - KidsClub - <a asp-area="" asp-page="/Privacy" class="text-black">Privacy</a>
+            </div>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+        
+
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+    </html>

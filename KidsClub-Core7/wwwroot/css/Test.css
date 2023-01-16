@@ -1,0 +1,18 @@
+body {
+  background-color: #fff;
+}
+
+.card {
+  border: none;
+  background-color: #faf6f5
+}
+
+.user-content p {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+
+.ratings i {
+  color: green;
+}

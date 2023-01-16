@@ -1,0 +1,59 @@
+﻿@page
+@model KidsClub.Pages.UserTestimonials.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="container mt-5 mb-5">
+
+    <div class="row g-2">
+
+        <div class="col-md-6" style="margin-left:23%">
+            <div class="card p-3 text-center px-4">
+
+
+                <div class="user-content">
+                    <h5>Are you sure you want to delete your testimonial?</h5>
+                        <dl class="row">
+        
+                    <dt class="col-sm-2">
+                    </dt>
+                        <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TblContent.Title)
+                    </dd>
+                    <dt class="col-sm-3">
+                    </dt>
+                    <dd class="col-sm-7">
+                        @Html.DisplayFor(model => model.TblContent.ShortDescription)
+                    </dd>
+        
+                    @*<dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.TblContent.DisplayOrder)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.TblContent.DisplayOrder)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.TblContent.Qty)
+                    </dt>
+                    <dd class="col-sm-">
+                        @Html.DisplayFor(model => model.TblContent.Qty)
+                    </dd>*@
+       
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TblContent.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-page="./Index" class="btn btn-success">Back to List</a>
+    </form>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

@@ -1,0 +1,232 @@
+﻿@page
+@model KidsClub.Pages.AttendingEvents.EditModel
+
+<html lang="en">
+<body class="hold-transition layout-navbar-fixed layout-fixed">
+      <div class="content-wrapper">
+          <br />
+          <br />
+            <section class="content">
+                <form method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="TblContent.Id" />
+                    @*<section class="content" style="margin-left: 300px">
+                    <div class="row">
+                    <div class="col-md-8">
+                    <div class="card card-secondary">
+                    <div class="card-header bg-blue">
+                    <h3 class="card-title">Category</h3>
+                    </div>
+                    <div class="card-body">
+                    <div class="form-group">
+                    <select asp-for="TblContent.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"><option value="0">-- Select Category --</option></select>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>*@
+                    @*<section class="content" style="margin-left: 300px">
+                    <div class="row">
+                    <div class="col-md-8">
+                    <div class="card card-secondary">
+                    <div class="card-header bg-blue">
+                    <h3 class="card-title">Event Title</h3>
+                    </div>
+                    <div class="card-body">
+                    <div class="form-group">
+                    <select asp-for="TblContent.ParentId" class="form-control" disabled="disabled" asp-items="ViewBag.ParentId"><option value="0">-- Select Event You Are Attending--</option></select>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>*@
+                   @*<section class="content" style="margin-left: 300px">
+                    <div class="row">
+                    <div class="col-md-8">
+                    <div class="card card-secondary">
+                    <div class="card-header bg-blue">
+                    <h3 class="card-title">Message</h3>
+                    </div>
+                    <div class="card-body">
+                    <div class="form-group">
+                    <input asp-for="TblContent.FromId" class="form-control" placeholder="From" />
+                    <span asp-validation-for="TblContent.FromId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                    <input asp-for="TblContent.ToId" class="form-control" placeholder="To" />
+                    <span asp-validation-for="TblContent.ToId" class="text-danger"></span>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </section>*@
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title">Contribution</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        @*<div class="form-group">
+                                            <input asp-for="TblContent.Title" class="form-control" placeholder="Title" />
+                                            <span asp-validation-for="TblContent.Title" class="text-danger"></span>
+                                        </div>*@
+                                        <div class="form-group">
+                                            <input asp-for="TblContent.ShortDescription" class="form-control" placeholder="Short Description" />
+                                            <span asp-validation-for="TblContent.ShortDescription" class="text-danger"></span>
+                                        </div>
+                                        @*<div class="form-group">
+                                            <input asp-for="TblContent.LongDescription" class="form-control" placeholder="Long Description" />
+                                            <span asp-validation-for="TblContent.LongDescription" class="text-danger"></span>
+                                        </div>*@
+                                        @*<div class="form-group">
+                                            <input asp-for="TblContent.Url" class="form-control" placeholder="URL" />
+                                            <span asp-validation-for="TblContent.Url" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input asp-for="Upload" type="file" class="custom-file-input" id="customFile" placeholder="Upload Picture">
+                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <span asp-validation-for="TblContent.Picture" class="text-danger"></span>
+                                            </div>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title">Number of Guests You are bringing</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <input asp-for="TblContent.Qty" class="form-control" placeholder="Quantity" />
+                                                <span asp-validation-for="TblContent.Qty" class="text-danger"></span>
+                                            </div>
+                                            @*<div class="form-group">
+                                                <input asp-for="TblContent.Price" class="form-control" placeholder="Price" />
+                                                <span asp-validation-for="TblContent.Price" class="text-danger"></span>
+                                            </div>*@
+                                            @*<div class="form-group">
+                                            <input asp-for="TblContent.DiscountPrice" class="form-control" placeholder="Discount Price" />
+                                            <span asp-validation-for="TblContent.DiscountPrice" class="text-danger"></span>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title">Event Expenses if Any</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            @*<div class="form-group">
+                                                <input asp-for="TblContent.Qty" class="form-control" placeholder="Quantity" />
+                                                <span asp-validation-for="TblContent.Qty" class="text-danger"></span>
+                                            </div>*@
+                                            <div class="form-group">
+                                                <input asp-for="TblContent.Price" class="form-control" placeholder="Price" />
+                                                <span asp-validation-for="TblContent.Price" class="text-danger"></span>
+                                            </div>
+                                            @*<div class="form-group">
+                                                <input asp-for="TblContent.DiscountPrice" class="form-control" placeholder="Discount Price" />
+                                                <span asp-validation-for="TblContent.DiscountPrice" class="text-danger"></span>
+                                            </div>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title"> Arriving Time</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <input asp-for="TblContent.StartDate" class="form-control" placeholder="Start Date" />
+                                            <span asp-validation-for="TblContent.StartDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title"> Departure Time</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <input asp-for="TblContent.EndDate" class="form-control" placeholder="Start Date" />
+                                            <span asp-validation-for="TblContent.EndDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="content" style="margin-left: 300px">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card card-secondary">
+                                    <div class="card-header bg-blue">
+                                        <h6 class="card-title">Feedback</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        @*<div class="form-group">
+                                            <label asp-for="TblContent.IsActive" class="control-label"></label>
+                                            <input asp-for="TblContent.IsActive" class="form-control" />
+                                            <span asp-validation-for="TblContent.IsActive" class="text-danger"></span>
+                                        </div>*@
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" asp-for="TblContent.IsDefault" /> @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+                                            </label>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" asp-for="TblContent.IsArchived" /> @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="submit" value="Save" class="btn btn-info  float-right" />
+                                            <a asp-page="/AttendingEvents/Index2" class="btn btn-secondary bg-green">Go Back</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </section>
+        </div>
+</body>
+</html>
+
+
+
+
+
+

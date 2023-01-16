@@ -1,0 +1,21 @@
+body {
+  margin: 0px;
+}
+
+labels {
+  cursor: pointer;
+  outline: 0;
+  color: #AAA;
+}
+
+.btns:focus {
+  outline: none;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

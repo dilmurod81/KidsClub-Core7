@@ -1,0 +1,450 @@
+﻿@page
+@model KidsClub.Pages.Admin_events.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bonita Kids Club | User Profile</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+@*sidebar-mini sidebar-collapse*@
+<body class="hold-transition  layout-navbar-fixed layout-fixed">
+    <div class="wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="~/dist/img/logo_copy.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="/Admin_dashboard" class="nav-link">Home</a>
+                </li>
+            </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+
+
+                <li class="nav-item">
+                    <partial name="_LoginPartial" />
+                </li>
+
+            </ul>
+        </nav>s
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
+            <!-- Brand Logo -->
+
+            <a asp-area="" asp-page="/Admin_dashboard/Index" class="brand-link">
+                <img src="~/dist/img/logo_copy.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 1">
+                <span class="brand-text font-weight-light">Bonita Kids Club</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="~/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">ADMIN PAGE</a>
+                    </div>
+                </div>
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                             with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_dashboard/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_events/Index" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Events</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_pictures/Index" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>Pictures</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_blog/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Blogs</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_content/Index" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>Content</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_video/Index" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Videos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_games/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Games</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_profile/Index" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>Profile</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_userMng/Index" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        @*<li class="nav-item">
+                        <a asp-area="" asp-page="/Admin_activityMng/Index" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>Activity</p>
+                        </a>
+                        </li>*@
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_roles/Index" class="nav-link">
+                                <i class="nav-icon fas fa-table"></i>
+                                <p>Roles</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_calendar/Index" class="nav-link">
+                                <i class="nav-icon far fa-calendar-alt"></i>
+                                <p>
+                                    Calendar
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_mailboxMng/Index" class="nav-link">
+                                <i class="nav-icon far fa-envelope"></i>
+                                <p>
+                                    Mailbox
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_invoice/Index" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Invoice</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="" asp-page="/Admin_search/Index" class="nav-link">
+                                <i class="nav-icon fas fa-search"></i>
+                                <p>Search</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="overflow: scroll;">
+@*            <section class="content-header" style="margin-left: 200px">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h4>Pictures</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <button class="btn bg-info float-right" style="margin-right: 4px">
+                                <a asp-page="./Create">Add New Picture</a>
+                            </button>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+            *@ 
+            <div class="container" style="margin-left:100px">
+                <div class="d-flex flex-row">
+                    <section class="content">
+                        <div class="container-fluid">
+                            <div class="row mt-3">
+                                <div class="col-md-12 offset-md-1">
+                                    <div class="card card-secondary">
+                                        <div class="card-header bg-light">
+                                            <h4 class="card-title">Event</h4>
+                                        </div>
+                                        <div class="list-group">
+                                            <div class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col px-7">
+                                                        <div style="width:700px">
+                                                            <div>
+                                                                <img style="width:100%; height:auto"
+                                                                     src="../Pictures/@Html.DisplayFor(model => model.TblContent.Picture)"
+                                                                     alt="profile picture">
+                                                                <hr />
+                                                                <h3>@Html.DisplayFor(model => model.TblContent.Title)</h3>
+                                                                <hr />
+                                                                <ul>
+                                                                    <li style="display:inline"><b>Start Date:</b> @Html.DisplayFor(model => model.TblContent.StartDate)</li> &nbsp&nbsp&nbsp |
+                                                                    &nbsp&nbsp&nbsp
+                                                                    <li style="display:inline"><b>End Date:</b>@Html.DisplayFor(model => model.TblContent.EndDate)</li> &nbsp&nbsp&nbsp |
+                                                                    &nbsp&nbsp&nbsp<li style="display:inline"><b>Updated Date:</b> @Html.DisplayFor(model => model.TblContent.DateUpdated)</li>
+                                                                        </ul>
+                                                                <hr />
+                                                                <p class="mb-0">@Html.DisplayFor(model => model.TblContent.ShortDescription)</p>
+                                                                <p class="mb-0">@Html.DisplayFor(model => model.TblContent.LongDescription)</p>
+                                                            </div>
+                                                            <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.TblContent.Id">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.2.0
+            </div>
+            <strong>Copyright &copy; 2014-2021 <a href="#">Bonita Kids Club</a>.</strong> All rights reserved.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+@*@page
+@model KidsClub.Pages.Admin_events.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout_admin.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblContent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.CategoryId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.CategoryId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.FromId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.FromId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.ToId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.ToId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.LongDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.LongDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Url)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Url)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Urlslug)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Urlslug)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Icon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Icon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DisplayOrder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DisplayOrder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Qty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Qty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DiscountPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DiscountPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsActive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsActive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsDefault)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsDefault)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.IsArchived)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.IsArchived)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DateUpdated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DateUpdated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.DateEntered)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.DateEntered)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TblContent.Parent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TblContent.Parent.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TblContent.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>*@

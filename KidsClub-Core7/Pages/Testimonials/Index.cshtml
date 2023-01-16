@@ -1,0 +1,50 @@
+﻿@page
+@model KidsClub.Pages.Testimonials.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5 mb-5">
+
+    <div class="row g-2">
+        @foreach(var item in Model.TblContent)
+        {
+            <div class="col-md-4">
+                <div class="card p-3 text-center px-4">
+
+                <div class="user-image">
+
+                        <img src="~/Pictures/user_2.jpg" class="rounded-circle" width="80">
+
+                </div>
+
+                <div class="user-content">
+
+                    <h6 class="mb-0">@Html.DisplayFor(modelItem => item.FromId)</h6>
+                    <span>@Html.DisplayFor(modelItem => item.Title)</span>
+                    <br />
+                    <br />
+                        <label class="rating-label" style="margin-left:35%">
+                            <strong></strong>
+                            <input class="rating rating--nojs"
+                               max="5"
+                               step="1"
+                               type="range"
+                               value="@Html.DisplayFor(modelItem => item.Qty)">
+                        </label>
+                 </div>
+                    <p>@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
