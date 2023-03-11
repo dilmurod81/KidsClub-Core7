@@ -36,14 +36,11 @@ namespace KidsClub.Pages.Admin_blog
         {
             try
             {
-                //if (TblContent.IsActive == null)
-                //    TblContent.IsActive = false;
+                
                 if (TblContent.ParentId == 0)
                     TblContent.ParentId = null;
                 if (TblContent.CategoryId == 0)
-                    TblContent.CategoryId = null;
-                //TblContent.DateEntered = DateTime.Now;
-                //ModelState.Remove("DateEntered");
+                    TblContent.CategoryId = null;                
 
                 if (!ModelState.IsValid)
                 {
@@ -59,7 +56,7 @@ namespace KidsClub.Pages.Admin_blog
                 }
                 TblContent.Picture = Upload.FileName;
                 _context.TblContents.Add(TblContent);
-                TblContent.CategoryId = 4;
+                TblContent.CategoryId = 109;
                 await _context.SaveChangesAsync();
 
                 return RedirectToPage("./Index");

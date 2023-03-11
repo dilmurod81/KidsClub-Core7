@@ -55,7 +55,7 @@ namespace KidsClub.Pages.Admin_video_member
 
             try
             {
-                TblContent.CategoryId = 2;
+                TblContent.CategoryId = 108;
                 TblContent.IsActive = true;
                 TblContent.FromId = User.Identity.Name;
                 await _context.SaveChangesAsync();

@@ -29,7 +29,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h4>Games</h4>
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 5).Count() games</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 110).Count() games</h6>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -50,7 +50,7 @@
                             }
                             item.ToId = item.ToId.Replace(" ", "");
                         }
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 21 && x.ToId == User.Identity.Name).Count() messages</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 45 && x.ToId == User.Identity.Name).Count() messages</h6>
                         
                     </div>
                     <div class="icon">
@@ -65,7 +65,7 @@
                 <div class="small-box bg-danger">
                     <div class="inner">
                         <h4>Events</h4>
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 6).Count() events</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 111).Count() events</h6>
 
                     </div>
                     <div class="icon">
@@ -82,7 +82,7 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h4>Videos</h4>
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 2).Count() videos</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 108).Count() videos</h6>
 
                     </div>
                     <div class="icon">
@@ -97,7 +97,7 @@
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h4>Testimonials</h4>
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 1 && x.ParentId == null).Count() testimonials</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 112 && x.ParentId == null).Count() testimonials</h6>
 
                     </div>
                     <div class="icon">
@@ -112,7 +112,7 @@
                 <div class="small-box bg-primary">
                     <div class="inner">
                         <h4>Articles</h4>
-                        <h6>@Model.TblCount.Where(x => x.CategoryId == 4 && x.ParentId == null).Count() articles</h6>
+                        <h6>@Model.TblCount.Where(x => x.CategoryId == 109 && x.ParentId == null).Count() articles</h6>
 
                     </div>
                     <div class="icon">

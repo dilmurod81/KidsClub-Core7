@@ -35,7 +35,7 @@ namespace KidsClub.Pages.Admin_video_member
             {
                 return Page();
             }
-            TblContent.CategoryId = 2;
+            TblContent.CategoryId = 108;
             TblContent.FromId = User.Identity.Name;
             TblContent.IsActive = true;
             _context.TblContents.Add(TblContent);

@@ -21,8 +21,8 @@ namespace KidsClub.Pages.Messages
 
         public IActionResult OnGet()
         {
-        ViewData["CategoryId"] = new SelectList(_context.TblContents, "Id", "Id");
-        ViewData["ParentId"] = new SelectList(_context.TblContents, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.TblContents, "Id", "Id");
+            ViewData["ParentId"] = new SelectList(_context.TblContents, "Id", "Id");
             return Page();
         }
 
@@ -36,7 +36,7 @@ namespace KidsClub.Pages.Messages
             //{
             //    return Page();
             //}
-            TblContent.CategoryId = 21;
+            TblContent.CategoryId = 45;
             _context.TblContents.Add(TblContent);
             await _context.SaveChangesAsync();
 

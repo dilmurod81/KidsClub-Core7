@@ -58,7 +58,7 @@ namespace KidsClub.Pages.Admin_blog_member
                     await Upload.CopyToAsync(fileStream);
                 }
                 TblContent.Picture = Upload.FileName;
-                TblContent.CategoryId = 4;
+                TblContent.CategoryId = 109;
                 TblContent.IsActive = true;
                 TblContent.FromId = User.Identity.Name;
                 _context.TblContents.Add(TblContent);

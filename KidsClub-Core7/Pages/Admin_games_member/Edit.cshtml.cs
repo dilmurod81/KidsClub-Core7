@@ -65,7 +65,7 @@ namespace KidsClub.Pages.Admin_games_member
 
             try
             {
-                TblContent.CategoryId = 5;
+                TblContent.CategoryId = 110;
                 TblContent.IsActive = true;
                 TblContent.FromId = User.Identity.Name;
                 await _context.SaveChangesAsync();

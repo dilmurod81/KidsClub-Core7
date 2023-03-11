@@ -26,7 +26,7 @@ namespace KidsClub.Pages.Admin_events_member
         {
 
             TblContent = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId.Equals(6)).ToListAsync();
+                .Where(x => x.CategoryId.Equals(111)).ToListAsync();
 
 
 

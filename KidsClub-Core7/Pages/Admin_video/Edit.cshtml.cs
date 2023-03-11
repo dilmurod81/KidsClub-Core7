@@ -55,7 +55,7 @@ namespace KidsClub.Pages.Admin_video
 
             try
             {
-                TblContent.CategoryId = 2;
+                TblContent.CategoryId = 108;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

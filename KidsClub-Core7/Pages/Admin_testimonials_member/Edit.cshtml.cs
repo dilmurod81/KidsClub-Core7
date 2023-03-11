@@ -50,7 +50,7 @@ namespace KidsClub.Pages.Admin_testimonials_member
         {
 
             TblContents.FromId = User.Identity.Name;
-            TblContents.CategoryId = 1;
+            TblContents.CategoryId = 112;
             TblContents.IsActive = true;
             TblContents.DateEntered = DateTime.Now;
             //if (!ModelState.IsValid)

@@ -60,7 +60,7 @@ namespace KidsClub.Pages.Admin_games
 
                 TblContent.Picture = Upload.FileName;
                 _context.TblContents.Add(TblContent);
-                TblContent.CategoryId = 5;
+                TblContent.CategoryId = 110;
                 await _context.SaveChangesAsync();
 
                 return RedirectToPage("./Index");

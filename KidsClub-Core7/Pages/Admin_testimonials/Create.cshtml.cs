@@ -33,7 +33,7 @@ namespace KidsClub.Pages.Admin_testimonials
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             TblContent.ParentId = id;
-            TblContent.CategoryId = 1;
+            TblContent.CategoryId = 112;
             //if (!ModelState.IsValid)
             //{
             //    return Page();

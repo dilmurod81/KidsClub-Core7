@@ -22,7 +22,7 @@ namespace KidsClub.Pages.Admin_games_member
 
         public async Task OnGetAsync()
         {
-            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(5))
+            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(110))
                 .Include(t => t.Category)
                 .Include(t => t.Parent).ToListAsync();
         }

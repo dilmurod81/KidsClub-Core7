@@ -22,7 +22,7 @@ namespace KidsClub.Pages.Admin_video
 
         public async Task OnGetAsync()
         {
-            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(2))
+            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(108))
                 .Include(t => t.Category)
                 .Include(t => t.Parent).ToListAsync();
         }

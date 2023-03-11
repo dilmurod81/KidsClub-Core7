@@ -23,7 +23,7 @@ namespace KidsClub.Pages.Admin_events
 
         public async Task OnGetAsync()
         {
-            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(6))
+            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(111))
                 .Include(t => t.Parent)
                 .Include(t => t.Category).ToListAsync();
         }

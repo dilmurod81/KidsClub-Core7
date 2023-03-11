@@ -53,7 +53,7 @@ namespace KidsClub.Pages.Admin_mailboxMng_member
             //}
 
             //_context.Attach(TblContent).State = EntityState.Modified;
-            TblContent.CategoryId = 21;
+            TblContent.CategoryId = 45;
             TblContent.FromId = User.Identity.Name;
             _context.TblContents.Add(TblContent);
             await _context.SaveChangesAsync();

@@ -48,7 +48,7 @@ namespace KidsClub.Pages.Admin_testimonials
         public async Task<IActionResult> OnPostAsync()
         {
             TblContent.IsActive = true;
-            TblContent.CategoryId = 1;
+            TblContent.CategoryId = 112;
             //if (!ModelState.IsValid)
             //{
             //    return Page();

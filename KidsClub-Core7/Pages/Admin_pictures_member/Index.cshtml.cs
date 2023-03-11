@@ -25,7 +25,7 @@ namespace KidsClub.Pages.Admin_pictures_member
         public async Task OnGetAsync()
         {
             TblContent = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId.Equals(3) && x.ParentId == null).ToListAsync();
+                .Where(x => x.CategoryId.Equals(107) && x.ParentId == null).ToListAsync();
         }
     }
 }

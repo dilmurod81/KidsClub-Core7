@@ -24,7 +24,7 @@ namespace KidsClub.Pages.Admin_testimonials
         public async Task OnGetAsync()
         {
             TblContent = await _context.TblContents
-                .Where(x => x.CategoryId == 1)
+                .Where(x => x.CategoryId == 112)
                 .Include(t => t.Category)
                 .Include(t => t.Parent).ToListAsync();
         }

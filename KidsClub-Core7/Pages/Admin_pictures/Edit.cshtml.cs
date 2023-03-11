@@ -65,7 +65,7 @@ namespace KidsClub.Pages.Admin_pictures
 
             try
             {
-                TblContent.CategoryId = 3;
+                TblContent.CategoryId = 107;
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

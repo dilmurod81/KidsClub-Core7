@@ -22,7 +22,7 @@ namespace KidsClub.Pages.Admin_mailboxMng_member
 
         public async Task OnGetAsync()
         {
-            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(21)).ToListAsync();// && x.FromId == User.Identity.Name && x.ToId != User.Identity.Name)
+            TblContent = await _context.TblContents.Where(x => x.CategoryId.Equals(45)).ToListAsync();// && x.FromId == User.Identity.Name && x.ToId != User.Identity.Name)
                                                                                                       //.Include(t => t.Category)
                                                                                                       //.Include(t => t.Parent).ToListAsync();
         }

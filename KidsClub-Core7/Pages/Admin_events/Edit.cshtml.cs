@@ -66,7 +66,7 @@ namespace KidsClub.Pages.Admin_events
             }
             TblContent.Picture = Upload.FileName;
 
-            TblContent.CategoryId = 6;
+            TblContent.CategoryId = 111;
 
             await _context.Procedures.usp_Events_UpdateAsync(TblContent.Id, TblContent.ParentId, TblContent.CategoryId, TblContent.FromId, TblContent.Title, TblContent.ShortDescription, TblContent.LongDescription, TblContent.Url, TblContent.Picture, TblContent.Icon, TblContent.Price, TblContent.DiscountPrice, TblContent.IsActive, TblContent.IsDefault, TblContent.IsArchived, TblContent.StartDate, TblContent.EndDate, TblContent.DateEntered);
 

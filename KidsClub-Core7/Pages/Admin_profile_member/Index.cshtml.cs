@@ -41,11 +41,11 @@ namespace KidsClub.Pages.Admin_profile_member
             //}
             TblCount = await _context.VwContentChildCountMurod.ToListAsync();
             TblSender = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId == 21 && x.ParentId != null && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
+                .Where(x => x.CategoryId == 45 && x.ParentId != null && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
             TblSenderInitial = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId == 21 && x.ParentId == null && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
+                .Where(x => x.CategoryId == 45 && x.ParentId == null && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
             TblUsers = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId == 21 && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
+                .Where(x => x.CategoryId == 45 && x.FromId != User.Identity.Name && x.ToId == User.Identity.Name).ToListAsync();
             AspNetUser = await _context.AspNetUsers
                 .Where(x => x.UserName.Equals(User.Identity.Name)).ToListAsync();
             //TblResponse = await _context.TblContents
@@ -60,7 +60,7 @@ namespace KidsClub.Pages.Admin_profile_member
             var Event = await _context.VwContentChildCountMurod.FirstOrDefaultAsync(m => m.Id == id);
             var Comments = await _context.VwContentChildCountMurod.FirstOrDefaultAsync(m => m.Id == id);
             var Attendee = await _context.TblContents.FirstOrDefaultAsync(m => m.ParentId == id && m.FromId == User.Identity.Name);
-            var Re = await _context.TblContents.FirstOrDefaultAsync(m => m.CategoryId == 21 && m.ParentId == id && m.FromId == User.Identity.Name);
+            var Re = await _context.TblContents.FirstOrDefaultAsync(m => m.CategoryId == 45 && m.ParentId == id && m.FromId == User.Identity.Name);
             var Attendees = await _context.TblContents.Where(m => m.ParentId == id).ToListAsync();
 
             if (Re != null)
@@ -86,7 +86,7 @@ namespace KidsClub.Pages.Admin_profile_member
         {
 
             TblContent.IsActive = true;
-            TblContent.CategoryId = 21;
+            TblContent.CategoryId = 45;
             TblContent.ParentId = id;
             TblContent.FromId = User.Identity.Name;
             TblContent.ToId = FromId;

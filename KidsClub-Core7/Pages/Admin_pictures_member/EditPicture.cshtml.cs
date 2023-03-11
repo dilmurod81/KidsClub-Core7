@@ -50,7 +50,7 @@ namespace KidsClub.Pages.Admin_pictures_member
         {
 
             TblContents.FromId = User.Identity.Name;
-            TblContents.CategoryId = 3;
+            TblContents.CategoryId = 107;
             TblContents.IsActive = true;
             TblContents.DateEntered = DateTime.Now;
             //if (!ModelState.IsValid)

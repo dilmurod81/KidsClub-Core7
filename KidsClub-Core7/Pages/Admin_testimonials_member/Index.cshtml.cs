@@ -25,7 +25,7 @@ namespace KidsClub.Pages.Admin_testimonials_member
         public async Task OnGetAsync(int? id)
         {
             TblContent = await _context.VwContentChildCountMurod
-                .Where(x => x.CategoryId.Equals(1) && x.ParentId.Equals(id)).ToListAsync();
+                .Where(x => x.CategoryId.Equals(112) && x.ParentId.Equals(id)).ToListAsync();
         }
 
 
@@ -37,7 +37,7 @@ namespace KidsClub.Pages.Admin_testimonials_member
             //    return Page();
             //}
             TblContents.FromId = User.Identity.Name;
-            TblContents.CategoryId = 1;
+            TblContents.CategoryId = 112;
 
             await _context.Procedures.usp_TestimonialsAsync(TblContents.Id, TblContents.ParentId, TblContents.FromId, TblContents.ToId,
                 TblContents.Title, TblContents.ShortDescription, TblContents.LongDescription, TblContents.Qty, TblContents.DisplayOrder, "Testimonials");

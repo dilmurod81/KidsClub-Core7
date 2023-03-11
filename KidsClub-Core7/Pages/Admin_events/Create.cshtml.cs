@@ -38,7 +38,7 @@ namespace KidsClub.Pages.Admin_events
             try
             {
                 TblContent.IsActive = true;
-                TblContent.CategoryId = 6;
+                TblContent.CategoryId = 111;
 
                 //if (!ModelState.IsValid)
                 //{

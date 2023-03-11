@@ -36,7 +36,7 @@ namespace KidsClub.Pages.Admin_messages
             //{
             //    return Page();
             //}
-            TblContent.CategoryId = 21;
+            TblContent.CategoryId = 45;
             _context.TblContents.Add(TblContent);
             await _context.SaveChangesAsync();
 

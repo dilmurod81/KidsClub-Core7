@@ -57,7 +57,7 @@ namespace KidsClub.Pages.Admin_mailboxMng_member
             //{
             //    return Page();
             //}
-            TblContent.CategoryId = 21;
+            TblContent.CategoryId = 45;
             TblContent.ToId = FromId;
             TblContent.FromId = User.Identity.Name;
             TblContent.IsActive = true;

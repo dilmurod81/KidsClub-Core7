@@ -59,7 +59,7 @@ namespace KidsClub.Pages.Admin_pictures_member
                 }
 
                 TblContent.Picture = Upload.FileName;
-                TblContent.CategoryId = 3;
+                TblContent.CategoryId = 107;
                 TblContent.FromId = User.Identity.Name;
                 _context.TblContents.Add(TblContent);
                 await _context.SaveChangesAsync();

@@ -30,7 +30,7 @@ namespace KidsClub.Pages.Admin_events
             UserName = HttpContext.User.Identity.Name;
             TblContent = await _context.TblContents
                 //.Where(x => x.CategoryId.Equals(6) || x.ParentId.Equals(104))
-                .Where(x => x.ParentId.Equals(id) || x.CategoryId.Equals(6))
+                .Where(x => x.ParentId.Equals(id) || x.CategoryId.Equals(111))
                 .Include(t => t.Parent)
                 .Include(t => t.Category).ToListAsync();
         }

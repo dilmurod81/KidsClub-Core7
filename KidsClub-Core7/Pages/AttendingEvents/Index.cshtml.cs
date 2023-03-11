@@ -27,7 +27,7 @@ namespace KidsClub.Pages.AttendingEvents
         {
             UserName = HttpContext.User.Identity.Name;
             TblContent = await _context.TblContents
-                .Where(x => x.CategoryId.Equals(6))// || x.FromId.Equals(UserName)
+                .Where(x => x.CategoryId.Equals(108))// || x.FromId.Equals(UserName)
                 .Include(t => t.Parent)
                 .Include(t => t.Category).ToListAsync();
         }

@@ -23,7 +23,7 @@ namespace KidsClub.Pages.Admin_video_member
 
         public async Task OnGetAsync()
         {
-            TblContent = await _context.VwContentChildCountMurod.Where(x => x.CategoryId.Equals(2)).ToListAsync();
+            TblContent = await _context.VwContentChildCountMurod.Where(x => x.CategoryId.Equals(108)).ToListAsync();
         }
     }
 }
